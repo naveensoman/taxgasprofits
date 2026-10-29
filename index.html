@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="canonical" href="https://taxgasprofits.au/">
+<meta name="theme-color" content="#0b2160">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tax Gas Profits, Build Homes">
+<meta property="og:url" content="https://taxgasprofits.au/">
+<meta property="og:title" content="Tax Gas Profits, Build Homes">
+<meta property="og:description" content="Houses: sold to the highest bidder. Gas: sold to the lowest. A new Australian party, with every number sourced.">
+<meta property="og:image" content="https://taxgasprofits.au/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aussie! Aussie! Aussie! Sold! Sold! Sold! Houses: sold to the highest bidder. Gas: sold to the lowest.">
+<meta name="twitter:card" content="summary_large_image">
+<title>Tax Gas Profits, Build Homes</title>
+<meta name="description" content="Aussie! Aussie! Aussie! Sold! Sold! Sold! A new party for a country whose beer tax raises more than its gas profits tax. This time, we're setting a reserve.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Big+Shoulders+Display:wght@700;800;900&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* Layout: the country as a Saturday auction. A navy auction board up top with red SOLD stickers, "recently sold" listing cards,
+   the paperwork as the source under every claim; then the board comes down and the page turns green and gold for the plan. */
+:root {
+  --bg: #ffffff;
+  --bg-2: #eef1f7;
+  --ink: #0a1a3f;
+  --ink-2: #4b5675;
+  --line: #d5dbe8;
+  --navy: #0b2160;
+  --on-navy: #ffffff;
+  --on-navy-2: #b9c4e0;
+  --red: #e1141c;
+  --on-red: #ffffff;
+  --paper: #f7f7f4;
+  --paper-ink: #1c1c1c;
+  --slab: #0a1a3f;
+  --on-slab: #ffffff;
+  --board: #ffffff;
+  --board-ink: #0a1a3f;
+  --board-ink-2: #4b5675;
+  --board-line: #d5dbe8;
+  --bar-muted: #8f9bbb;
+  --green: #0b4a36;
+  --green-2: #1a5f48;
+  --gold: #f4b400;
+  --on-green: #f4f1e1;
+  --on-green-2: #c4d6cb;
+  --flame: #2f7bff;
+  --flame-soft: #9cc2ff;
+  --focus: #0b5fff;
+  --f-display: "Big Shoulders Display", "Anton", Impact, "Arial Narrow", sans-serif;
+  --f-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-paper: "Courier Prime", "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1022;
+    --bg-2: #121a35;
+    --ink: #eef1f8;
+    --ink-2: #a9b3cc;
+    --line: #27315a;
+    --navy: #0e2463;
+    --on-navy: #ffffff;
+    --on-navy-2: #aebbdd;
+    --red: #ef2a30;
+    --on-red: #ffffff;
+    --slab: #04071a;
+    --paper: #e6e6e1;
+    --paper-ink: #1c1c1c;
+    --bar-muted: #56638a;
+    --green: #0a3a2b;
+    --green-2: #165340;
+    --gold: #f4b400;
+    --on-green: #efe9d2;
+    --on-green-2: #a9c2b4;
+    --flame: #5c9dff;
+    --flame-soft: #a9c9ff;
+    --focus: #8ab8ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1022;
+  --bg-2: #121a35;
+  --ink: #eef1f8;
+  --ink-2: #a9b3cc;
+  --line: #27315a;
+  --navy: #0e2463;
+  --on-navy: #ffffff;
+  --on-navy-2: #aebbdd;
+  --red: #ef2a30;
+  --on-red: #ffffff;
+  --slab: #04071a;
+  --paper: #e6e6e1;
+  --paper-ink: #1c1c1c;
+  --bar-muted: #56638a;
+  --green: #0a3a2b;
+  --green-2: #165340;
+  --gold: #f4b400;
+  --on-green: #efe9d2;
+  --on-green-2: #a9c2b4;
+  --flame: #5c9dff;
+  --flame-soft: #a9c9ff;
+  --focus: #8ab8ff;
+  color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: clamp(1rem, 0.94rem + 0.28vw, 1.125rem);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p, ul, ol { margin: 0; }
+.wrap {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.band { padding-block: clamp(56px, 8vw, 112px); }
+.alt { background: var(--bg-2); }
+.display { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -0.005em; }
+.h2 { font-size: clamp(2.6rem, 1.6rem + 5vw, 5.4rem); }
+.lede { font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); max-width: 48ch; }
+.fnwrap { font-size: 0.68em; vertical-align: super; line-height: 0; font-weight: 700; white-space: nowrap; padding-left: 1px; }
+.fnwrap a { text-decoration: none; color: inherit; padding-inline: 1px; }
+.fnwrap a:hover { text-decoration: underline; }
+.head { display: grid; gap: 16px; margin-bottom: clamp(28px, 4vw, 48px); }
+.head .lede { color: var(--ink-2); }
+
+/* the red SOLD sticker, used everywhere */
+.sticker {
+  display: inline-block;
+  background: var(--red); color: var(--on-red);
+  font-family: var(--f-display); font-weight: 900; text-transform: uppercase; line-height: 0.9;
+  padding: 0.08em 0.22em 0.02em;
+  transform: rotate(-7deg);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- hero: the auction board ---------- */
+.hero { background: var(--navy); color: var(--on-navy); position: relative; overflow: hidden; --focus: var(--gold); }
+.hero .wrap { padding-block: 20px clamp(48px, 7vw, 96px); }
+.masthead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.brand { display: grid; gap: 6px; }
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.satire-tag { font-size: 0.8rem; font-weight: 600; color: var(--on-navy-2); }
+.lockup { display: inline-grid; font-family: var(--f-display); font-weight: 900; text-transform: uppercase; line-height: 0.92; font-size: 1.45rem; border: 2px solid var(--gold); }
+.lockup .top { background: var(--gold); color: var(--green); padding: 5px 10px 3px; }
+.lockup .bottom { background: var(--green); color: var(--on-green); padding: 5px 10px 4px; letter-spacing: 0.06em; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-weight: 600; font-size: 0.95rem; }
+.nav a { text-decoration: none; color: var(--on-navy); }
+.nav a:hover { text-decoration: underline; }
+
+.cover { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "board" "copy"; gap: 28px 48px; margin-top: clamp(32px, 5vw, 64px); align-items: start; }
+@media (min-width: 940px) { .cover { grid-template-columns: minmax(0, 1fr) 340px; grid-template-areas: "title board" "copy board"; } }
+.cover-title { grid-area: title; min-width: 0; }
+.cover .board-wrap { grid-area: board; }
+.cover .hero-copy { grid-area: copy; margin-top: 0; }
+.chant { display: grid; gap: 10px; container-type: inline-size; }
+.chant .aussie { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1.5rem, 1rem + 2.4vw, 2.6rem); line-height: 1; color: var(--on-navy-2); letter-spacing: 0.02em; }
+.chant .solds { display: flex; flex-wrap: nowrap; gap: 0.2em; font-size: clamp(2.2rem, 10vw, 6rem); font-size: min(11.2cqi, 7rem); padding-block: 0.06em; }
+.motion .chant .solds .sticker { animation: slap 0.42s cubic-bezier(.2,1.4,.4,1) backwards; }
+.chant .solds .sticker:nth-child(1) { animation-delay: 0.15s; transform: rotate(-6deg); }
+.chant .solds .sticker:nth-child(2) { animation-delay: 0.45s; transform: rotate(3deg); }
+.chant .solds .sticker:nth-child(3) { animation-delay: 0.75s; transform: rotate(-3deg); }
+@keyframes slap { from { scale: 1.3; } to { scale: 1; } }
+.hero-title { margin-top: clamp(26px, 3.4vw, 40px); font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(2rem, 1.2rem + 3.4vw, 3.9rem); line-height: 0.95; max-width: 16ch; }
+.hero-title span { display: block; }
+.hero-title .low { color: var(--gold); }
+.hero-copy { display: grid; gap: 22px; margin-top: 24px; max-width: 640px; }
+.hero-copy .lede { color: var(--on-navy); max-width: 40ch; font-weight: 500; }
+.fine { font-size: 0.82rem; max-width: 60ch; color: var(--on-navy-2); }
+.hero .fnwrap a { color: var(--on-navy); }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 10px 22px;
+  font: 800 1.05rem/1 var(--f-body);
+  text-decoration: none; cursor: pointer;
+  border: 3px solid currentColor; background: transparent; color: inherit;
+  border-radius: 999px;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-red { background: var(--red); border-color: var(--red); color: var(--on-red); }
+
+/* the board on posts */
+.board-wrap { justify-self: center; width: 340px; max-width: 100%; }
+@media (min-width: 940px) { .board-wrap { justify-self: end; } }
+.board { position: relative; background: var(--board); color: var(--board-ink); border: 4px solid var(--on-navy); }
+.board-head { background: var(--red); color: var(--on-red); font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: 1.9rem; line-height: 1; padding: 10px 16px 8px; }
+.board-body { padding: 16px 16px 20px; display: grid; gap: 6px; }
+.board .what { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: 2.9rem; line-height: 0.88; }
+.board .spec { font-size: 0.86rem; color: var(--board-ink-2); }
+.board .guide { margin-top: 8px; font-weight: 800; }
+.board .terms { font-size: 0.8rem; color: var(--board-ink-2); }
+.board .agent { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--board-line); font-size: 0.8rem; font-weight: 700; }
+.board .fnwrap a { color: var(--board-ink); }
+.board > .sticker { position: absolute; right: -16px; top: 58px; font-size: 2.5rem; padding: 6px 12px 2px; transform: rotate(-12deg); }
+.motion .board > .sticker { animation: slap-board 0.45s cubic-bezier(.2,1.4,.4,1) 1.15s backwards; }
+@keyframes slap-board { from { scale: 1.35; } to { scale: 1; } }
+.posts { display: flex; justify-content: space-between; padding-inline: 40px; }
+.posts span { width: 12px; height: 70px; background: var(--on-navy-2); }
+
+/* ---------- live ticker ---------- */
+.ticker { background: var(--slab); color: var(--on-slab); }
+.ticker .wrap { padding-block: 28px 30px; }
+.ticker h2 { font: 700 0.95rem/1.3 var(--f-body); }
+.counters { display: grid; gap: 18px 32px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); margin-top: 14px; }
+.counter { min-width: 0; }
+.counter .num { font-family: var(--f-display); font-weight: 900; font-size: clamp(2.4rem, 1.6rem + 3vw, 3.8rem); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.counter.gas .num { color: var(--gold); }
+.counter .label { font-size: 1rem; font-weight: 700; margin-top: 6px; }
+.counter .note { font-size: 0.82rem; margin-top: 2px; opacity: 0.8; }
+.ticker .foot { font-size: 0.82rem; margin-top: 18px; max-width: 84ch; opacity: 0.85; }
+.ticker .fnwrap a { color: inherit; }
+
+.strip { background: var(--red); color: var(--on-red); }
+.strip .wrap { padding-block: 14px; font-weight: 700; display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: center; text-align: center; }
+
+/* ---------- recently sold: listing cards ---------- */
+.listings { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+.lot { position: relative; min-width: 0; display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
+@media (min-width: 760px) { .lot.feature { grid-column: span 2; } }
+.lot-top { position: relative; background: var(--bg-2); padding: 22px 20px 18px; min-height: 150px; display: grid; align-content: end; gap: 8px; overflow: hidden; }
+.lot-top .addr { font-size: 0.85rem; font-weight: 600; color: var(--ink-2); padding-right: 72px; }
+.lot-top h3 { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.1rem, 1.6rem + 1.6vw, 2.9rem); line-height: 0.88; padding-right: 64px; }
+.lot.feature .lot-top h3 { font-size: clamp(2.6rem, 1.6rem + 3.4vw, 4.4rem); }
+.ribbon {
+  position: absolute; top: 22px; right: -48px; width: 184px; text-align: center;
+  background: var(--red); color: var(--on-red);
+  font-family: var(--f-display); font-weight: 900; font-size: 1.35rem; text-transform: uppercase; line-height: 1;
+  padding: 7px 0 5px; transform: rotate(35deg);
+}
+.lot.back .ribbon { background: var(--green); color: var(--on-green); font-size: 1.05rem; }
+.lot-body { display: flex; flex-direction: column; gap: 12px; padding: 18px 20px 20px; flex: 1; }
+.price { font-weight: 800; font-size: 1.1rem; line-height: 1.3; }
+.price b { display: block; font-family: var(--f-display); font-weight: 900; font-size: 2rem; line-height: 1; color: var(--red); }
+.lot.back .price b { color: var(--green); }
+.specs { display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 10px 0; margin: 0; border-block: 1px solid var(--line); }
+.specs div { min-width: 0; }
+.specs dt { font-size: 0.74rem; font-weight: 600; color: var(--ink-2); }
+.specs dd { margin: 0; font-weight: 800; font-variant-numeric: tabular-nums; }
+.lot .desc { max-width: 60ch; }
+.lot-main { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+@media (min-width: 760px) {
+  .lot.feature .lot-body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px 32px; align-items: start; }
+  .lot.feature details.papers { margin-top: 0; }
+}
+.seller { font-size: 0.9rem; color: var(--ink-2); }
+.seller b { color: var(--ink); }
+
+/* the paperwork: the source under every claim */
+details.papers { margin-top: auto; }
+details.papers summary {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
+  cursor: pointer; list-style: none; font-weight: 700; font-size: 0.95rem;
+}
+details.papers summary::-webkit-details-marker { display: none; }
+details.papers summary::before { content: ""; width: 16px; height: 20px; border: 2px solid currentColor; border-radius: 1px; background: linear-gradient(currentColor 0 0) 3px 5px / 6px 2px no-repeat, linear-gradient(currentColor 0 0) 3px 10px / 6px 2px no-repeat; }
+details.papers .hide-label, details.papers[open] .show-label { display: none; }
+details.papers[open] .hide-label { display: inline; }
+.paper {
+  background: var(--paper); color: var(--paper-ink);
+  font-family: var(--f-paper); font-size: 0.86rem; line-height: 1.5;
+  padding: 18px 18px 20px;
+  border: 1px solid var(--line);
+  box-shadow: 4px 4px 0 var(--line);
+  overflow-wrap: anywhere;
+}
+details.papers .paper { margin-top: 6px; }
+details.papers.opening .paper { animation: unfold 0.3s ease-out; }
+@keyframes unfold { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+.paper .doc { font-weight: 700; text-align: center; letter-spacing: 0.04em; }
+.paper .rule { border-top: 1px dashed currentColor; margin: 8px 0; opacity: 0.6; }
+.paper .row { display: flex; justify-content: space-between; gap: 12px; }
+.paper .row span:last-child { text-align: right; flex: none; max-width: 55%; }
+.paper .src { margin-top: 8px; font-size: 0.8rem; }
+.paper .src a, .paper .fnwrap a { color: inherit; }
+.paper .settled { margin-top: 14px; display: inline-block; color: var(--red); border: 2px solid var(--red); padding: 2px 8px; font-weight: 700; transform: rotate(-4deg); }
+
+.settlement { margin-top: clamp(40px, 5vw, 64px); display: grid; gap: 18px; }
+.settlement h3 { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem); }
+.settlement .lede { color: var(--ink-2); }
+.settlement .paper { max-width: 620px; }
+
+/* ---------- already delivered ---------- */
+.policies { display: grid; border-top: 3px solid var(--ink); }
+.policy { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 28px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.policy h3 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); line-height: 0.95; }
+.policy p { color: var(--ink-2); margin-top: 8px; max-width: 64ch; }
+.stamp {
+  justify-self: end;
+  font-family: var(--f-display); font-weight: 900; text-transform: uppercase;
+  color: var(--red); border: 3px solid var(--red); border-radius: 6px;
+  padding: 6px 12px 4px; text-align: center; line-height: 0.9;
+  font-size: 1.5rem; transform: rotate(-8deg); white-space: nowrap;
+}
+.stamp small { display: block; font-size: 0.62em; letter-spacing: 0.04em; }
+.policy:nth-child(even) .stamp { transform: rotate(6deg); }
+@media (max-width: 560px) { .policy { grid-template-columns: minmax(0, 1fr); } .stamp { justify-self: start; } }
+.punch { margin-top: 28px; font-weight: 800; font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem); max-width: 52ch; }
+
+/* ---------- savings per person: an emphasis bar chart ---------- */
+.chart { display: grid; gap: 22px; }
+.chart-title { font-weight: 800; font-size: 1.1rem; }
+.chart-sub { font-size: 0.9rem; color: var(--ink-2); margin-top: 2px; max-width: 80ch; }
+.bars { display: grid; gap: 18px; }
+.bar-row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 4px 16px; align-items: center; }
+.bar-row .who { font-weight: 800; }
+.bar-row .who small { display: block; font-weight: 500; font-size: 0.78rem; color: var(--ink-2); }
+.track { display: flex; align-items: center; gap: 10px; min-width: 0; border-left: 1px solid var(--ink-2); }
+.bar { height: 24px; min-width: 3px; border-radius: 0 4px 4px 0; background: var(--bar-muted); flex: none; }
+.bar-row.us .bar { background: var(--red); }
+.track .val { font-family: var(--f-display); font-weight: 900; font-size: 1.6rem; line-height: 1; white-space: nowrap; }
+.track .val small { font-family: var(--f-body); font-weight: 600; font-size: 0.8rem; color: var(--ink-2); }
+@media (max-width: 560px) { .bar-row { grid-template-columns: minmax(0, 1fr); } }
+
+.household { display: grid; gap: 16px; margin-top: 40px; padding: 22px; background: var(--bg); border: 1px solid var(--line); max-width: 760px; }
+.household fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
+.household legend { font-weight: 800; font-size: 1.05rem; padding: 0; margin-bottom: 10px; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg label { position: relative; }
+.seg input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.seg span { display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; padding: 0 10px; border: 2px solid var(--ink); border-radius: 999px; font-weight: 800; }
+.seg input:checked + span { background: var(--ink); color: var(--bg); }
+.seg input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px 24px; }
+.split .k { font-size: 0.9rem; color: var(--ink-2); }
+.split .v { font-family: var(--f-display); font-weight: 900; font-size: clamp(2.2rem, 1.4rem + 2.4vw, 3.2rem); line-height: 1; }
+.split .v.us { color: var(--red); }
+.household .note { font-size: 0.84rem; color: var(--ink-2); }
+
+/* ---------- how to kill a country ---------- */
+.kit { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 0.95rem; }
+.kit b { font-weight: 800; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); border: 3px solid var(--ink); }
+.step { min-width: 0; padding: 24px 22px 26px; display: grid; gap: 12px; align-content: start; border-right: 1px solid var(--line); }
+.step:last-child { border-right: 0; }
+@media (max-width: 1000px) { .step { border-right: 0; border-bottom: 1px solid var(--line); } .step:last-child { border-bottom: 0; } }
+.step .n { font-family: var(--f-display); font-weight: 900; font-size: 5.5rem; line-height: 0.75; color: var(--red); }
+.step h3 { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: 2rem; line-height: 0.92; }
+.facts { display: grid; gap: 8px; padding: 0; margin: 4px 0 0; list-style: none; }
+.facts li { padding-left: 16px; position: relative; color: var(--ink-2); }
+.facts li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; background: var(--red); }
+.result { margin-top: 24px; font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); line-height: 0.95; max-width: 28ch; }
+
+/* ---------- quiz ---------- */
+.quiz { display: grid; gap: 16px; max-width: 820px; }
+.quiz .q { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.9rem, 1.3rem + 2vw, 2.8rem); line-height: 0.95; }
+.answers { display: grid; gap: 10px; }
+.answer {
+  display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; align-items: center;
+  width: 100%; min-height: 56px; padding: 10px 16px; text-align: left;
+  font: 600 1.02rem/1.35 var(--f-body); color: var(--ink); background: var(--bg);
+  border: 2px solid var(--ink); border-radius: 4px; cursor: pointer;
+}
+.answer .letter { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 2px solid currentColor; font-weight: 800; }
+.answer:hover { background: var(--bg-2); }
+.answer[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.answer.right[aria-pressed="true"] { background: var(--green); color: var(--on-green); border-color: var(--green); }
+.verdict { border-left: 6px solid var(--red); padding: 4px 0 4px 18px; font-size: 1.05rem; max-width: 64ch; }
+.verdict.right { border-left-color: var(--green); }
+.verdict b { display: block; font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: 1.6rem; line-height: 1; margin-bottom: 6px; }
+.quiz-src { font-size: 0.84rem; color: var(--ink-2); }
+.quiz-share { font-weight: 700; }
+.aside-migrants { margin-top: 40px; display: grid; gap: 12px; max-width: 64ch; padding-top: 24px; border-top: 3px solid var(--ink); }
+.aside-migrants h3 { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.5rem); line-height: 0.95; }
+
+/* ---------- the flip: green and gold ---------- */
+.flip { background: var(--green); color: var(--on-green); --focus: var(--gold); }
+.flip .wrap { padding-block: clamp(72px, 10vw, 140px) clamp(64px, 9vw, 120px); }
+.flip .kicker { font-weight: 700; color: var(--gold); font-size: 1.05rem; }
+.flip h2 { color: var(--gold); font-size: clamp(3rem, 1.6rem + 6.4vw, 7rem); margin-top: 10px; max-width: 14ch; }
+.flip .lede { color: var(--on-green); max-width: 46ch; margin-top: 22px; }
+.planks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); column-gap: 32px; margin-top: clamp(40px, 5vw, 64px); border-top: 2px solid var(--gold); }
+.plank { min-width: 0; padding: 22px 0 26px; display: grid; gap: 10px; align-content: start; border-bottom: 1px solid var(--green-2); }
+.plank h3 { font-family: var(--f-body); font-weight: 800; font-size: 1.3rem; line-height: 1.2; color: var(--on-green); font-variation-settings: "wdth" 110; }
+.plank p { color: var(--on-green-2); }
+.plank .ex { color: var(--on-green); border-left: 3px solid var(--gold); padding-left: 12px; font-weight: 600; }
+.flip .fnwrap a { color: var(--gold); }
+.closing { margin-top: clamp(40px, 5vw, 60px); font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.9rem); line-height: 1.3; font-weight: 700; max-width: 38ch; }
+
+/* ---------- join ---------- */
+.join { background: var(--navy); color: var(--on-navy); --focus: var(--gold); }
+.join .wrap { display: grid; gap: 22px; justify-items: start; }
+.join h2 { font-size: clamp(3rem, 1.4rem + 7vw, 7.4rem); }
+.join .lede { color: var(--on-navy); }
+.join .btn-red { font-size: 1.2rem; min-height: 60px; padding-inline: 30px; }
+.share-box { display: grid; gap: 22px; width: 100%; max-width: 64ch; }
+.share-item { display: grid; gap: 10px; }
+.share-item label { color: var(--on-navy); }
+.join .btn-ink { background: var(--on-navy); color: var(--navy); border-color: var(--on-navy); }
+.join .copied { color: var(--on-navy); }
+.share-text { width: 100%; min-height: 104px; resize: vertical; padding: 12px; font: 500 0.95rem/1.45 var(--f-body); color: var(--ink); background: var(--bg); border: 2px solid var(--ink); border-radius: 4px; }
+.share-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn-ink { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.copied { font-weight: 700; }
+
+/* ---------- footer: the receipts ---------- */
+.footer { background: var(--slab); color: var(--on-slab); --focus: var(--gold); }
+.footer .wrap { padding-block: 56px 64px; display: grid; gap: 24px; }
+.footer h2 { font-size: clamp(2.2rem, 1.4rem + 3vw, 3.6rem); }
+.sources { margin: 0; padding-left: 2.2em; font-size: 0.86rem; line-height: 1.45; }
+@media (min-width: 900px) { .sources { columns: 2; column-gap: 44px; } }
+.sources li { break-inside: avoid; margin-bottom: 9px; scroll-margin-top: 24px; }
+.sources a { color: inherit; overflow-wrap: anywhere; }
+.sources li:target { outline: 2px solid var(--gold); outline-offset: 3px; }
+.legal { font-size: 0.86rem; max-width: 84ch; display: grid; gap: 8px; border-top: 1px solid currentColor; padding-top: 22px; opacity: 0.9; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .btn:hover { transform: none; }
+}
+
+/* ---------- the founder's letter ---------- */
+.founder { background: var(--bg); }
+.letter { display: grid; gap: 18px; max-width: 64ch; }
+.letter h2 { font-size: clamp(2.4rem, 1.5rem + 4vw, 4.6rem); }
+.letter p { font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem); line-height: 1.6; }
+.letter .pull { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem); line-height: 1; color: var(--red); }
+.signoff { display: grid; gap: 2px; margin-top: 8px; padding-top: 16px; border-top: 3px solid var(--ink); }
+.signoff b { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: 1.6rem; line-height: 1; }
+.signoff span { color: var(--ink-2); font-size: 0.95rem; }
+
+/* ---------- GASLIT: what they said, what the record shows ---------- */
+.gaslit { background: var(--slab); color: var(--on-slab); --focus: var(--flame-soft); }
+.gaslit .head .lede { color: var(--on-slab); opacity: 0.85; }
+.gaslit h2 { display: flex; align-items: center; gap: 0.25em; flex-wrap: wrap; }
+.gaslit .flame { width: 0.62em; height: 0.86em; flex: none; }
+.gaslit .flame path { fill: var(--flame); }
+.gaslit .flame .core { fill: var(--flame-soft); }
+.define { font-size: 1.05rem; max-width: 60ch; border-left: 4px solid var(--flame); padding: 2px 0 2px 16px; }
+.define b { color: var(--flame-soft); }
+.gaslit .rules { font-size: 0.9rem; max-width: 70ch; opacity: 0.8; }
+.cards { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); margin-top: 8px; }
+.gcard { min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 20px; border: 1px solid color-mix(in srgb, var(--flame) 45%, transparent); background: color-mix(in srgb, var(--flame) 7%, var(--slab)); border-radius: 4px; }
+.gcard .meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.kind { font-weight: 700; font-size: 0.85rem; color: var(--flame-soft); }
+.party { font-size: 0.78rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; border: 1px solid currentColor; opacity: 0.9; }
+.said { display: grid; gap: 6px; }
+.said .label, .record .label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+.said blockquote { margin: 0; font-family: var(--f-paper); font-size: 1.02rem; line-height: 1.45; }
+.said .who { font-size: 0.88rem; opacity: 0.85; }
+.record { display: grid; gap: 6px; padding-top: 12px; border-top: 1px dashed color-mix(in srgb, var(--on-slab) 35%, transparent); }
+.record p { font-size: 0.98rem; }
+.gcard .links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: auto; font-weight: 700; font-size: 0.92rem; }
+.gcard .links a { color: var(--flame-soft); }
+.gaslit .fnwrap a { color: var(--flame-soft); }
+.signature { margin-top: 28px; font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2rem, 1.3rem + 3vw, 3.6rem); line-height: 0.9; color: var(--flame-soft); }
+.tally { font-size: 0.92rem; opacity: 0.85; margin-top: 10px; }
+
+.join .soon { font-size: 1.05rem; color: var(--on-navy); max-width: 60ch; }
+
+/* ---------- dear homeowner ---------- */
+.homeowner { background: var(--bg); }
+.homeowner .letter h2 { font-size: clamp(2.2rem, 1.4rem + 3.6vw, 4.2rem); }
+.punchline { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2rem, 1.3rem + 3vw, 3.4rem); line-height: 0.92; color: var(--red); margin-top: 8px; text-wrap: balance; }
+
+/* ---------- the live auction on the board ---------- */
+.board-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.lotno { font-family: var(--f-body); font-weight: 700; font-size: 0.85rem; text-transform: none; }
+.lots-viewport { display: grid; padding: 18px 16px 20px; }
+.lotcard { grid-area: 1 / 1; display: grid; gap: 8px; align-content: start; visibility: hidden; }
+.lotcard.on { visibility: visible; }
+.lotcard .what { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: 1.7rem; line-height: 0.9; padding-right: 70px; }
+.lotcard .big { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.3rem, 1.8rem + 1.8vw, 3.1rem); line-height: 0.9; color: var(--red); text-wrap: balance; }
+.lotcard .sub { font-size: 0.9rem; line-height: 1.45; color: var(--board-ink-2); }
+.lotcard .fnwrap a { color: var(--board-ink); }
+.board > .sticker.slap { animation: slap-board 0.4s cubic-bezier(.2,1.4,.4,1); }
+.lot-controls { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.lot-controls button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--on-navy-2); background: transparent; color: var(--on-navy); font: 700 0.85rem/1 var(--f-body); cursor: pointer; }
+.lot-controls button:hover { border-color: var(--on-navy); }
+.lot-controls button[aria-pressed="true"] { background: var(--on-navy); color: var(--navy); border-color: var(--on-navy); }
+
+/* ---------- the breaking-news crawl ---------- */
+.crawl { background: var(--red); color: var(--on-red); overflow: hidden; white-space: nowrap; border-block: 3px solid var(--slab); }
+.crawl-track { display: inline-flex; animation: crawl 70s linear infinite; }
+.crawl ul { display: inline-flex; margin: 0; padding: 11px 0; list-style: none; }
+.crawl li { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: 1.3rem; line-height: 1; padding-inline: 1.1rem; }
+.crawl li::after { content: "\2605"; margin-left: 2.2rem; opacity: 0.75; }
+@keyframes crawl { to { transform: translateX(-50%); } }
+.paused .crawl-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .crawl { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="masthead">
+      <a class="logo" href="#top" aria-label="Tax Gas Profits, Build Homes: back to top"><span class="lockup"><span class="top">Tax Gas Profits</span><span class="bottom">Build Homes</span></span></a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#founder">Why we started</a>
+        <a href="#sold">Sold</a>
+        <a href="#gaslit">Gaslit</a>
+        <a href="#plan">The plan</a>
+        <a href="#join">Join</a>
+      </nav>
+    </div>
+    <div class="cover">
+      <div class="cover-title">
+        <p class="chant" aria-label="Aussie, Aussie, Aussie! Sold, sold, sold!">
+          <span class="aussie" aria-hidden="true">Aussie! Aussie! Aussie!</span>
+          <span class="solds" aria-hidden="true"><span class="sticker">Sold!</span><span class="sticker">Sold!</span><span class="sticker">Sold!</span></span>
+        </p>
+        <h1 class="hero-title"><span>Houses: sold to the highest bidder.</span><span class="low">Gas: sold to the lowest.</span></h1>
+      </div>
+      <div class="board-wrap">
+        <div class="board" id="lots" aria-roledescription="carousel" aria-label="The auction, one lot at a time">
+          <p class="board-head"><span>Auction</span><span class="lotno" id="lotno">Lot 1 of 13</span></p>
+          <div class="lots-viewport">
+            <article class="lotcard on" data-sticker="Sold" aria-label="Lot 1 of 13: Australia">
+              <p class="what">Australia</p>
+              <p class="big">No reserve</p>
+              <p class="sub">7.7 million km².<sup class="fnwrap"><a href="#src-1" aria-label="Source 1">1</a></sup> Fully furnished. Gas included. Vendor motivated. Selling agents: both major parties.</p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 2 of 13: Natural gas">
+              <p class="what">Natural gas</p>
+              <p class="big">$0</p>
+              <p class="sub">in gas profits tax from any LNG project, right up to 2023. The Budget said so itself.<sup class="fnwrap"><a href="#src-2" aria-label="Source 2">2</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 3 of 13: Bluey">
+              <p class="what">Bluey</p>
+              <p class="big">Made here. Cashed in Britain.</p>
+              <p class="sub">Made in Brisbane with Australian public money. The BBC sells it to the world: about $300 million going to the UK, says the ABC's own boss.<sup class="fnwrap"><a href="#src-3" aria-label="Source 3">3</a>,<a href="#src-4" aria-label="Source 4">4</a>,<a href="#src-5" aria-label="Source 5">5</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 4 of 13: Gas, 2025-26">
+              <p class="what">Gas, 2025-26</p>
+              <p class="big">$57bn out. $1.4bn back.</p>
+              <p class="sub">Gas exports earned $57 billion. The gas profits tax raised $1.4 billion. The beer tax raised $2.7 billion.<sup class="fnwrap"><a href="#src-6" aria-label="Source 6">6</a>,<a href="#src-7" aria-label="Source 7">7</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 5 of 13: Shell&#x27;s gas profits tax">
+              <p class="what">Shell&#x27;s gas profits tax</p>
+              <p class="big">$0 for a decade</p>
+              <p class="sub">Then $109 million in 2025, it told the Senate.<sup class="fnwrap"><a href="#src-8" aria-label="Source 8">8</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 6 of 13: Japan&#x27;s cut">
+              <p class="what">Japan&#x27;s cut</p>
+              <p class="big">Bigger than ours</p>
+              <p class="sub">Japan's tax on the Australian gas it imports raises about $710 million a year. Our gas tax gets about $420 million a year from LNG exporters. That's one think tank's estimate.<sup class="fnwrap"><a href="#src-9" aria-label="Source 9">9</a>,<a href="#src-10" aria-label="Source 10">10</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 7 of 13: The blood-products lab">
+              <p class="what">The blood-products lab</p>
+              <p class="big">$299m → $94bn</p>
+              <p class="sub">CSL, sold in 1994. Worth about $94 billion in October 2026.<sup class="fnwrap"><a href="#src-11" aria-label="Source 11">11</a>,<a href="#src-12" aria-label="Source 12">12</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Leased" aria-label="Lot 8 of 13: Port of Darwin">
+              <p class="what">Port of Darwin</p>
+              <p class="big">99 years</p>
+              <p class="sub">Leased to a Chinese company for $506 million in 2015.<sup class="fnwrap"><a href="#src-13" aria-label="Source 13">13</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Leased" aria-label="Lot 9 of 13: SA&#x27;s power poles">
+              <p class="what">SA&#x27;s power poles</p>
+              <p class="big">200 years</p>
+              <p class="sub">Handed to two Hong Kong companies in 1999, by a government that had promised not to.<sup class="fnwrap"><a href="#src-14" aria-label="Source 14">14</a>,<a href="#src-15" aria-label="Source 15">15</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Leased" aria-label="Lot 10 of 13: Sydney Airport">
+              <p class="what">Sydney Airport</p>
+              <p class="big">$4.2bn → $23.6bn</p>
+              <p class="sub">Lease sold in 2002. Taken over for $23.6 billion in 2022.<sup class="fnwrap"><a href="#src-16" aria-label="Source 16">16</a>,<a href="#src-17" aria-label="Source 17">17</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Closed" aria-label="Lot 11 of 13: The car industry">
+              <p class="what">The car industry</p>
+              <p class="big">$30bn, then gone</p>
+              <p class="sub">Tariffs and subsidies from 1997 to 2012. The last factory closed in 2017.<sup class="fnwrap"><a href="#src-18" aria-label="Source 18">18</a>,<a href="#src-19" aria-label="Source 19">19</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 12 of 13: Your share of the savings">
+              <p class="what">Your share of the savings</p>
+              <p class="big">$10,400</p>
+              <p class="sub">Norway has saved about $600,000 for every person. We've saved $10,400 each.<sup class="fnwrap"><a href="#src-20" aria-label="Source 20">20</a>,<a href="#src-21" aria-label="Source 21">21</a></sup></p>
+            </article>
+            <article class="lotcard" data-sticker="Sold" aria-label="Lot 13 of 13: A home">
+              <p class="what">A home</p>
+              <p class="big">8.2 × income</p>
+              <p class="sub">A record. And 122,494 people were homeless on Census night 2021.<sup class="fnwrap"><a href="#src-22" aria-label="Source 22">22</a>,<a href="#src-23" aria-label="Source 23">23</a></sup></p>
+            </article>
+          </div>
+          <span class="sticker" id="lot-sticker" aria-hidden="true">Sold</span>
+        </div>
+        <div class="posts" aria-hidden="true"><span></span><span></span></div>
+        <div class="lot-controls">
+          <button type="button" id="lots-prev" aria-label="Previous lot">Prev</button>
+          <button type="button" id="lots-pause" aria-pressed="false">Pause</button>
+          <button type="button" id="lots-next" aria-label="Next lot">Next</button>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <p class="lede">We shipped $57 billion of gas in 2025-26 and got $1.4 billion back in gas profits tax. The beer tax raised more.<sup class="fnwrap"><a href="#src-6" aria-label="Source 6">6</a>,<a href="#src-7" aria-label="Source 7">7</a></sup> Bluey was made in Brisbane with Australian money, and the BBC cashes in worldwide.<sup class="fnwrap"><a href="#src-3" aria-label="Source 3">3</a>,<a href="#src-5" aria-label="Source 5">5</a></sup> We call it a clearance sale.</p>
+        <div class="ctas">
+          <a class="btn btn-red" href="#plan">See the plan</a>
+          <a class="btn" href="#sold">See what they sold</a>
+        </div>
+        <p class="fine">The gas profits tax (PRRT) is charged on profits, not sales, and gas companies pay company tax on top.<sup class="fnwrap"><a href="#src-24" aria-label="Source 24">24</a></sup> We know. It's still a fire-sale price.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="crawl" aria-hidden="true">
+  <div class="crawl-track"><ul><li>Bluey: made here, cashed in Britain</li><li>LNG projects: $0 gas profits tax until 2023</li><li>Gas: $57bn out, $1.4bn back</li><li>Beer tax beat the gas profits tax five years running</li><li>Shell: $0 gas profits tax for a decade</li><li>CSL: sold for $299m, now about $94bn</li><li>Port of Darwin: 99-year lease</li><li>SA&#x27;s power network: 200-year lease</li><li>Sydney Airport: $4.2bn, then $23.6bn</li><li>Norway saved $600,000 each. We saved $10,400</li><li>Visa fees $4.66bn. Gas profits tax $1.42bn</li><li>122,494 homeless on Census night 2021</li></ul><ul><li>Bluey: made here, cashed in Britain</li><li>LNG projects: $0 gas profits tax until 2023</li><li>Gas: $57bn out, $1.4bn back</li><li>Beer tax beat the gas profits tax five years running</li><li>Shell: $0 gas profits tax for a decade</li><li>CSL: sold for $299m, now about $94bn</li><li>Port of Darwin: 99-year lease</li><li>SA&#x27;s power network: 200-year lease</li><li>Sydney Airport: $4.2bn, then $23.6bn</li><li>Norway saved $600,000 each. We saved $10,400</li><li>Visa fees $4.66bn. Gas profits tax $1.42bn</li><li>122,494 homeless on Census night 2021</li></ul></div>
+</div>
+
+<section class="ticker" aria-labelledby="ticker-h">
+  <div class="wrap">
+    <h2 id="ticker-h">Since you opened this page</h2>
+    <div class="counters">
+      <div class="counter gas">
+        <p class="num" data-per-year="57000000000">$0</p>
+        <p class="label">of gas shipped overseas</p>
+        <p class="note">LNG export earnings: $57 billion a year<sup class="fnwrap"><a href="#src-6" aria-label="Source 6">6</a></sup></p>
+      </div>
+      <div class="counter">
+        <p class="num" data-per-year="2683000000">$0</p>
+        <p class="label">collected in tax on beer</p>
+        <p class="note">Beer excise and duty: $2.68 billion a year<sup class="fnwrap"><a href="#src-7" aria-label="Source 7">7</a></sup></p>
+      </div>
+      <div class="counter">
+        <p class="num" data-per-year="1416000000">$0</p>
+        <p class="label">collected by the gas profits tax</p>
+        <p class="note">Petroleum resource rent tax: $1.42 billion a year<sup class="fnwrap"><a href="#src-7" aria-label="Source 7">7</a></sup></p>
+      </div>
+    </div>
+    <p class="foot">2025-26 totals, spread evenly over every second of the year. The gas tax is charged on profits, not sales. Gas companies pay company tax too, and some projects pay royalties.<sup class="fnwrap"><a href="#src-24" aria-label="Source 24">24</a></sup> Even so, the beer tax raised more than the gas tax in every year from 2021-22 to 2025-26, and the Budget expects beer to stay ahead every year to 2029-30.<sup class="fnwrap"><a href="#src-2" aria-label="Source 2">2</a>,<a href="#src-7" aria-label="Source 7">7</a>,<a href="#src-25" aria-label="Source 25">25</a>,<a href="#src-26" aria-label="Source 26">26</a>,<a href="#src-27" aria-label="Source 27">27</a></sup></p>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap"><span>Every number on this page has a source.</span> <span>That's the part that should worry you.</span></div>
+</div>
+
+<section class="band founder" id="founder" aria-labelledby="founder-h">
+  <div class="wrap">
+    <div class="letter">
+      <h2 id="founder-h" class="display">Why I started this</h2>
+      <p>I grew up in the Gulf. Oil and gas money was everywhere: in the schools, the hospitals and the roads. Also in a lot of Italian supercars. I'm not asking for those.</p>
+      <p>When I became Australian, I assumed a country this rich in gas and minerals would have the same to show for it. Then I looked at the numbers.</p>
+      <p class="pull">We ship about as much gas as Qatar. Our gas profits tax raised about $51 each.</p>
+      <p>That was 2025-26.<sup class="fnwrap"><a href="#src-7" aria-label="Source 7">7</a>,<a href="#src-28" aria-label="Source 28">28</a>,<a href="#src-29" aria-label="Source 29">29</a></sup> The beer tax raised more.<sup class="fnwrap"><a href="#src-7" aria-label="Source 7">7</a></sup> And when people get angry about housing, politicians point at migrants like me instead of the tax settings they wrote. I want less migration too, matched to the homes we actually build. It's just not the whole fix.</p>
+      <p>I'm not asking for Qatar. Qatar keeps its gas money for a few hundred thousand citizens, a small minority of the people who live there. There are 27.9 million of us.<sup class="fnwrap"><a href="#src-29" aria-label="Source 29">29</a>,<a href="#src-30" aria-label="Source 30">30</a></sup> I'm asking for Norway, a democracy that taxes petroleum profits at 78% and has saved about $600,000 for every person in the country.<sup class="fnwrap"><a href="#src-20" aria-label="Source 20">20</a>,<a href="#src-31" aria-label="Source 31">31</a>,<a href="#src-32" aria-label="Source 32">32</a>,<a href="#src-33" aria-label="Source 33">33</a>,<a href="#src-34" aria-label="Source 34">34</a></sup> We've saved $10,400.<sup class="fnwrap"><a href="#src-21" aria-label="Source 21">21</a></sup></p>
+      <p>That gap isn't bad luck. Both major parties chose it, again and again, and then defended it. I chose this country. I want it to get a fair price for what it sells.</p>
+      <div class="signoff"><b>Naveen Puliyath</b><span>Founder, Tax Gas Profits, Build Homes. Girraween NSW.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="sold" aria-labelledby="sold-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="sold-h" class="display h2">Recently sold</h2>
+      <p class="lede">National assets sold, leased or let go under governments of both colours. Open the paperwork to see what we got for them.</p>
+    </div>
+
+    <div class="listings">
+      <article class="lot feature">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Sold</span>
+          <p class="addr">Offshore WA and the NT, and onshore Queensland</p>
+          <h3>Natural gas</h3>
+        </div>
+        <div class="lot-body">
+          <div class="lot-main">
+          <p class="price"><b>2.5%</b>of export earnings, paid back to us in gas profits tax<sup class="fnwrap"><a href="#src-6" aria-label="Source 6">6</a>,<a href="#src-7" aria-label="Source 7">7</a></sup></p>
+          <dl class="specs">
+            <div><dt>Shipped, 2025</dt><dd>80.3 Mt</dd></div>
+            <div><dt>Qatar shipped</dt><dd>81.5 Mt</dd></div>
+            <div><dt>Earned, 2025-26</dt><dd>$57bn</dd></div>
+            <div><dt>Gas profits tax</dt><dd>$1.42bn</dd></div>
+            <div><dt>Per Australian</dt><dd>$51<sup class="fnwrap"><a href="#src-7" aria-label="Source 7">7</a>,<a href="#src-29" aria-label="Source 29">29</a></sup></dd></div>
+          </dl>
+          <p class="desc">In 2025 we shipped about as much liquefied gas as Qatar.<sup class="fnwrap"><a href="#src-28" aria-label="Source 28">28</a></sup> Qatar's gas belongs mostly to its state company.<sup class="fnwrap"><a href="#src-35" aria-label="Source 35">35</a></sup> Ours is run by companies like Chevron, Shell, Woodside and Japan's INPEX, whose biggest shareholder is the Japanese government.<sup class="fnwrap"><a href="#src-36" aria-label="Source 36">36</a></sup></p>
+          <p class="desc">Japan was our biggest customer, buying about a third.<sup class="fnwrap"><a href="#src-28" aria-label="Source 28">28</a></sup> By one think tank's estimate, Japan's own tax on the Australian gas it imports raises about $710 million a year. That's more than the $420 million a year our gas tax has collected from LNG exporters since mid-2023, and about half of what it collects from everyone.<sup class="fnwrap"><a href="#src-7" aria-label="Source 7">7</a>,<a href="#src-9" aria-label="Source 9">9</a>,<a href="#src-10" aria-label="Source 10">10</a></sup> Honestly, good on Japan. At least someone's charging for it.</p>
+          <p class="seller">Buyers: <b>Japan, China and others</b>, mostly on long-term contracts.<sup class="fnwrap"><a href="#src-27" aria-label="Source 27">27</a></sup> Tax settings: <b>both major parties</b>.</p>
+          </div>
+          <details class="papers" open>
+            <summary><span class="show-label">Show the paperwork</span><span class="hide-label">Hide the paperwork</span></summary>
+            <div class="paper">
+              <p class="doc">CONTRACT OF SALE<br>Lot 1: natural gas</p>
+              <div class="rule"></div>
+              <p class="row"><span>LNG shipped, 2025</span><span>80.3 Mt</span></p>
+              <p class="row"><span>Export earnings, 2025-26</span><span>$57.0bn</span></p>
+              <p class="row"><span>Gas profits tax (PRRT)</span><span>$1.42bn</span></p>
+              <p class="row"><span>Beer tax, same year</span><span>$2.68bn</span></p>
+              <p class="row"><span>Visa fees, same year</span><span>$4.66bn</span></p>
+              <div class="rule"></div>
+              <p class="row"><span>Shell's PRRT, 2025</span><span>$109m</span></p>
+              <p class="row"><span>Shell's PRRT, decade before</span><span>$0</span></p>
+              <div class="rule"></div>
+              <p class="src">2025-26 Final Budget Outcome; IGU World LNG Report 2026; Department of Industry; Shell's evidence to the Senate gas inquiry, as reported by the ABC.<sup class="fnwrap"><a href="#src-6" aria-label="Source 6">6</a>,<a href="#src-7" aria-label="Source 7">7</a>,<a href="#src-8" aria-label="Source 8">8</a>,<a href="#src-28" aria-label="Source 28">28</a></sup></p>
+              <p class="settled">SETTLED</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="lot">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Sold</span>
+          <p class="addr">Brisbane, QLD</p>
+          <h3>Bluey</h3>
+        </div>
+        <div class="lot-body">
+          <p class="price"><b>30%</b>of the funding, reportedly, bought the BBC the rights to sell it worldwide<sup class="fnwrap"><a href="#src-4" aria-label="Source 4">4</a></sup></p>
+          <p class="desc">Made in Brisbane by Ludo Studio, with public money from Screen Australia and Screen Queensland, and co-commissioned by the ABC and the BBC in 2017. The BBC's commercial arm, now BBC Studios, took the worldwide distribution and merchandise rights.<sup class="fnwrap"><a href="#src-3" aria-label="Source 3">3</a></sup></p>
+          <p class="desc">In April 2026 the ABC's managing director put it this way: "That's probably $300 million of income that's going to the UK."<sup class="fnwrap"><a href="#src-5" aria-label="Source 5">5</a></sup></p>
+          <p class="seller">Co-commissioned by: <b>the ABC</b>, 2017, with no share of the worldwide rights.<sup class="fnwrap"><a href="#src-3" aria-label="Source 3">3</a>,<a href="#src-37" aria-label="Source 37">37</a></sup> Buyer: <b>BBC Studios (UK)</b>.</p>
+          <details class="papers">
+            <summary><span class="show-label">Show the paperwork</span><span class="hide-label">Hide the paperwork</span></summary>
+            <div class="paper">
+              <p class="doc">CONTRACT OF SALE<br>Lot 2: one blue heeler</p>
+              <div class="rule"></div>
+              <p class="row"><span>Who owns Bluey</span><span>Ludo Studio, Qld</span></p>
+              <p class="row"><span>Who sells it to the world</span><span>BBC Studios, UK</span></p>
+              <p class="row"><span>What the ABC holds</span><span>a licence</span></p>
+              <p class="row"><span>Income going to the UK</span><span>~$300m</span></p>
+              <div class="rule"></div>
+              <p class="src">ABC managing director Hugh Marks, April 2026, and at Senate estimates, 27 October 2026.<sup class="fnwrap"><a href="#src-5" aria-label="Source 5">5</a>,<a href="#src-37" aria-label="Source 37">37</a></sup></p>
+              <p class="settled">SETTLED</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="lot">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Sold</span>
+          <p class="addr">Broadmeadows, VIC</p>
+          <h3>The blood-products lab</h3>
+        </div>
+        <div class="lot-body">
+          <p class="price"><b>$299m</b>in 1994. Worth about $94 billion in October 2026.<sup class="fnwrap"><a href="#src-11" aria-label="Source 11">11</a>,<a href="#src-12" aria-label="Source 12">12</a></sup></p>
+          <p class="desc">The government set up the Commonwealth Serum Laboratories in 1916 and sold CSL in 1994. In a deal signed alongside the sale, the average price of CSL's plasma products went up 147%.<sup class="fnwrap"><a href="#src-11" aria-label="Source 11">11</a></sup></p>
+          <p class="desc">Australians still give their plasma for free. Governments pay CSL to turn it into medicine. In 2024-25 they also imported 57.5% of their immunoglobulin, some of it from CSL, much of it made from plasma that US donors are paid for.<sup class="fnwrap"><a href="#src-38" aria-label="Source 38">38</a>,<a href="#src-39" aria-label="Source 39">39</a></sup> You get a biscuit. Keep donating anyway. The deal is the problem, not you.</p>
+          <p class="seller">Seller: <b>the Keating Labor government</b>, 1994. Buyer: <b>the share market</b>. Its only shareholders with 5% or more are three US fund managers, investing for clients around the world.<sup class="fnwrap"><a href="#src-40" aria-label="Source 40">40</a></sup></p>
+          <details class="papers">
+            <summary><span class="show-label">Show the paperwork</span><span class="hide-label">Hide the paperwork</span></summary>
+            <div class="paper">
+              <p class="doc">CONTRACT OF SALE<br>Lot 3: one serum laboratory</p>
+              <div class="rule"></div>
+              <p class="row"><span>Sale price, 1994</span><span>$299m</span></p>
+              <p class="row"><span>Price rise for its products</span><span>+147%</span></p>
+              <p class="row"><span>Value, 27 Oct 2026</span><span>~$94bn</span></p>
+              <div class="rule"></div>
+              <p class="row"><span>Plasma donated, 2024-25</span><span>905 t</span></p>
+              <p class="row"><span>Paid to donors</span><span>$0.00</span></p>
+              <p class="row"><span>Processing contract</span><span>~$3.4bn, 9 yrs</span></p>
+              <p class="row"><span>Immunoglobulin imported</span><span>57.5%</span></p>
+              <div class="rule"></div>
+              <p class="src">Australian National Audit Office; National Blood Authority annual report 2024-25; NSW Productivity and Equality Commission.<sup class="fnwrap"><a href="#src-11" aria-label="Source 11">11</a>,<a href="#src-12" aria-label="Source 12">12</a>,<a href="#src-38" aria-label="Source 38">38</a>,<a href="#src-39" aria-label="Source 39">39</a></sup></p>
+              <p class="settled">SETTLED</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="lot">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Leased</span>
+          <p class="addr">Darwin, NT</p>
+          <h3>Port of Darwin</h3>
+        </div>
+        <div class="lot-body">
+          <p class="price"><b>$506m</b>for a 99-year lease<sup class="fnwrap"><a href="#src-13" aria-label="Source 13">13</a></sup></p>
+          <p class="desc">In 2015 the Northern Territory leased the Port of Darwin to China's Landbridge Group for 99 years. Both major parties promised in 2025 to put it back in Australian hands. In 2026 Landbridge's owner took Australia to international arbitration instead.<sup class="fnwrap"><a href="#src-41" aria-label="Source 41">41</a></sup></p>
+          <p class="seller">Seller: <b>the NT Country Liberal government</b>. Buyer: <b>Landbridge Group (China)</b>. Returns: see you in arbitration.</p>
+        </div>
+      </article>
+
+      <article class="lot">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Leased</span>
+          <p class="addr">All of South Australia</p>
+          <h3>SA's power poles</h3>
+        </div>
+        <div class="lot-body">
+          <p class="price"><b>200 years</b>to run the state's electricity network, in a $3.4 billion deal<sup class="fnwrap"><a href="#src-14" aria-label="Source 14">14</a></sup></p>
+          <p class="desc">In 1999 South Australia handed two Hong Kong companies, Cheung Kong Infrastructure and Hongkong Electric, the right to run its electricity distribution network until about the year 2200. Pack a lunch.</p>
+          <p class="seller">Seller: <b>the SA Liberal government</b>, which had promised not to.<sup class="fnwrap"><a href="#src-15" aria-label="Source 15">15</a></sup> Buyers: <b>CKI and Hongkong Electric</b>.</p>
+        </div>
+      </article>
+
+      <article class="lot back">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Bought back</span>
+          <p class="addr">Port Melbourne, VIC</p>
+          <h3>Vegemite</h3>
+        </div>
+        <div class="lot-body">
+          <p class="price"><b>82 years</b>in American hands, then home in 2017<sup class="fnwrap"><a href="#src-42" aria-label="Source 42">42</a>,<a href="#src-43" aria-label="Source 43">43</a></sup></p>
+          <p class="desc">Invented in Melbourne and on sale from 1923. Owned by America's Kraft, then Mondelez, until Bega Cheese bought it back in 2017 as part of a $460 million deal.<sup class="fnwrap"><a href="#src-43" aria-label="Source 43">43</a></sup></p>
+          <p class="desc">Proof it can be done. It only took 82 years.</p>
+          <p class="seller">Buyer: <b>Bega Cheese (Australia)</b>, 2017.</p>
+        </div>
+      </article>
+
+      <article class="lot">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Leased</span>
+          <p class="addr">Mascot, NSW</p>
+          <h3>Sydney Airport</h3>
+        </div>
+        <div class="lot-body">
+          <p class="price"><b>$4.2bn</b>for the long-term lease, in 2002<sup class="fnwrap"><a href="#src-16" aria-label="Source 16">16</a></sup></p>
+          <p class="desc">Twenty years later the same airport was taken over for $23.6 billion.<sup class="fnwrap"><a href="#src-17" aria-label="Source 17">17</a></sup> Yes, things grow after you sell them. That's the case for keeping them.</p>
+          <p class="seller">Seller: <b>the Howard Coalition government</b>.</p>
+        </div>
+      </article>
+
+      <article class="lot">
+        <div class="lot-top">
+          <span class="ribbon" aria-hidden="true">Closed</span>
+          <p class="addr">Elizabeth, SA, and elsewhere</p>
+          <h3>The car industry</h3>
+        </div>
+        <div class="lot-body">
+          <p class="price"><b>$30bn</b>of tariffs and subsidies from 1997 to 2012, then closed anyway<sup class="fnwrap"><a href="#src-18" aria-label="Source 18">18</a></sup></p>
+          <p class="desc">Every carmaker was foreign-owned. The last factory, Holden's at Elizabeth, closed on 20 October 2017.<sup class="fnwrap"><a href="#src-19" aria-label="Source 19">19</a></sup></p>
+          <p class="seller">Propped up by: <b>both major parties</b>. Buyer: <b>nobody</b>. They just left.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="settlement">
+      <h3 class="display">Also gone</h3>
+      <p class="lede">The rest of the paperwork. Not every sale was a government's doing, so the private ones are marked. We're not after the Tim Tams. It's the public assets we'd keep.</p>
+      <div class="paper">
+        <p class="doc">SETTLEMENT STATEMENT<br>Australia, assorted lots</p>
+        <div class="rule"></div>
+        <p class="row"><span>PUBLIC SALES</span><span></span></p>
+        <p class="row"><span>Commonwealth Bank, sold 1991-96</span><span>$8.1bn</span></p>
+        <p class="row"><span>&nbsp;&nbsp;value on 27 Oct 2026</span><span>$272.5bn</span></p>
+        <p class="row"><span>&nbsp;&nbsp;sold by</span><span>Labor, then Coalition</span></p>
+        <div class="rule"></div>
+        <p class="row"><span>PRIVATE SALES</span><span></span></p>
+        <p class="row"><span>VB and Carlton (CUB), 2020</span><span>Asahi, Japan</span></p>
+        <p class="row"><span>XXXX and Tooheys (Lion), 2009</span><span>Kirin, Japan</span></p>
+        <p class="row"><span>Tim Tams (Arnott's), 2019</span><span>KKR, US</span></p>
+        <p class="row"><span>Devondale, 2018</span><span>Saputo, Canada</span></p>
+        <p class="row"><span>Pauls, Western Star, Mainland</span><span>Lactalis, France</span></p>
+        <p class="row"><span>The UGG trademark, 1995</span><span>Deckers, US</span></p>
+        <p class="row"><span>Golden Gaytime (Streets)</span><span>Amsterdam</span></p>
+        <p class="row"><span>Bundaberg Rum</span><span>Diageo, UK</span></p>
+        <p class="row"><span>Aeroplane Jelly</span><span>McCormick, US</span></p>
+        <p class="row"><span>Speedo (born in Sydney, 1914)</span><span>Pentland, UK</span></p>
+        <p class="row"><span>Uncle Tobys, 2006</span><span>Nestlé, Swiss</span></p>
+        <p class="row"><span>Smith's chips, 1998</span><span>PepsiCo, US</span></p>
+        <p class="row"><span>Four'N Twenty pies, 2022</span><span>PAG, Hong Kong</span></p>
+        <p class="row"><span>Chiko Roll, 1995</span><span>Simplot, Idaho</span></p>
+        <p class="row"><span>Fantales</span><span>Nestlé, axed 2023</span></p>
+        <p class="row"><span>Holden</span><span>GM, US, retired</span></p>
+        <div class="rule"></div>
+        <p class="row"><span>BOUGHT BACK</span><span></span></p>
+        <p class="row"><span>Vegemite</span><span>Bega, 2017</span></p>
+        <p class="row"><span>Dairy Farmers, Big M</span><span>Bega, 2021</span></p>
+        <p class="row"><span>R.M. Williams</span><span>2020</span></p>
+        <p class="row"><span>Bonds</span><span>Oct 2026, via Singapore</span></p>
+        <div class="rule"></div>
+        <p class="row"><span>LOTS GONE</span><span>24</span></p>
+        <p class="row"><span>LOTS BOUGHT BACK</span><span>4</span></p>
+        <div class="rule"></div>
+        <p class="src">Sources for every line:<sup class="fnwrap"><a href="#src-43" aria-label="Source 43">43</a>,<a href="#src-44" aria-label="Source 44">44</a>,<a href="#src-45" aria-label="Source 45">45</a>,<a href="#src-46" aria-label="Source 46">46</a>,<a href="#src-47" aria-label="Source 47">47</a>,<a href="#src-48" aria-label="Source 48">48</a>,<a href="#src-49" aria-label="Source 49">49</a>,<a href="#src-50" aria-label="Source 50">50</a>,<a href="#src-51" aria-label="Source 51">51</a>,<a href="#src-52" aria-label="Source 52">52</a>,<a href="#src-53" aria-label="Source 53">53</a>,<a href="#src-54" aria-label="Source 54">54</a>,<a href="#src-55" aria-label="Source 55">55</a>,<a href="#src-56" aria-label="Source 56">56</a>,<a href="#src-57" aria-label="Source 57">57</a>,<a href="#src-58" aria-label="Source 58">58</a>,<a href="#src-59" aria-label="Source 59">59</a>,<a href="#src-60" aria-label="Source 60">60</a>,<a href="#src-61" aria-label="Source 61">61</a>,<a href="#src-62" aria-label="Source 62">62</a>,<a href="#src-63" aria-label="Source 63">63</a>,<a href="#src-64" aria-label="Source 64">64</a>,<a href="#src-65" aria-label="Source 65">65</a>,<a href="#src-66" aria-label="Source 66">66</a>,<a href="#src-67" aria-label="Source 67">67</a>,<a href="#src-68" aria-label="Source 68">68</a>,<a href="#src-69" aria-label="Source 69">69</a></sup></p>
+        <p class="settled">KEEP THIS FOR YOUR RECORDS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="record" aria-labelledby="record-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="record-h" class="display h2">Their record. Every promise kept.</h2>
+      <p class="lede">The major parties make plenty of promises. These are the ones they kept.</p>
+    </div>
+    <div class="policies">
+      <div class="policy">
+        <div><h3>Raised more from beer than from the gas profits tax.</h3><p>The beer tax raised more than the gas profits tax in every year from 2021-22 to 2025-26.<sup class="fnwrap"><a href="#src-2" aria-label="Source 2">2</a>,<a href="#src-7" aria-label="Source 7">7</a>,<a href="#src-25" aria-label="Source 25">25</a>,<a href="#src-26" aria-label="Source 26">26</a>,<a href="#src-27" aria-label="Source 27">27</a></sup></p></div>
+        <p class="stamp">Done<small>2021-26</small></p>
+      </div>
+      <div class="policy">
+        <div><h3>Let gas exporters pay no gas profits tax for years.</h3><p>The 2023 Budget admitted that "not a single LNG project has paid any PRRT".<sup class="fnwrap"><a href="#src-2" aria-label="Source 2">2</a></sup> Shell told the Senate it paid $109 million in PRRT in 2025, and none in the decade before.<sup class="fnwrap"><a href="#src-8" aria-label="Source 8">8</a></sup></p></div>
+        <p class="stamp">Done<small>2023</small></p>
+      </div>
+      <div class="policy">
+        <div><h3>Made houses the national pension plan.</h3><p>Negative gearing lets investors take rental losses off their wages, and both major parties kept it for decades. From 1999 the Howard Coalition government taxed only half of investors' capital gains. In 2026 Parliament finally wound both back, from budget night for negative gearing and from July 2027 for capital gains. Anyone who'd already bought keeps negative gearing. Anyone who buys a new build keeps both.<sup class="fnwrap"><a href="#src-70" aria-label="Source 70">70</a>,<a href="#src-71" aria-label="Source 71">71</a></sup></p></div>
+        <p class="stamp">Done<small>1999</small></p>
+      </div>
+      <div class="policy">
+        <div><h3>Left a whole continent with two oil refineries.</h3><p>Two left since 2021: Lytton in Brisbane, and Geelong, which has run at reduced capacity since a fire in April 2026.<sup class="fnwrap"><a href="#src-72" aria-label="Source 72">72</a></sup></p></div>
+        <p class="stamp">Done<small>2021</small></p>
+      </div>
+    </div>
+    <p class="punch">Four out of four. Whatever else you say about the major parties, they deliver.</p>
+  </div>
+</section>
+
+<section class="band alt" id="savings" aria-labelledby="savings-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="savings-h" class="display h2">What the gas money bought</h2>
+      <p class="lede">Norway pumps oil and gas, taxes the profits at 78%, and saves what the state takes in a fund for its people.<sup class="fnwrap"><a href="#src-31" aria-label="Source 31">31</a></sup> Our government's savings fund is the Future Fund. It got the Telstra shares left over from the sell-off.<sup class="fnwrap"><a href="#src-73" aria-label="Source 73">73</a></sup></p>
+    </div>
+    <div class="chart" role="figure" aria-labelledby="chart-t">
+      <div>
+        <p class="chart-title" id="chart-t">Government savings fund per person</p>
+        <p class="chart-sub">Norway's oil fund and Australia's Future Fund, each divided by the country's population, in Australian dollars</p>
+      </div>
+      <div class="bars">
+        <div class="bar-row">
+          <p class="who">Norway<small>oil fund, Sept 2026</small></p>
+          <div class="track"><div class="bar" style="width: calc(100% - 150px)"></div><p class="val">$600,000</p></div>
+        </div>
+        <div class="bar-row us">
+          <p class="who">Australia<small>Future Fund, June 2026</small></p>
+          <div class="track"><div class="bar" style="width: calc((100% - 150px) * 0.0173)"></div><p class="val">$10,400 <small>yes, that's the bar</small></p></div>
+        </div>
+      </div>
+      <p class="chart-sub">Norway: NOK 22,014 billion shared by 5.64 million people, about NOK 3.9 million each. At 28 October 2026 exchange rates that is about US$420,000, or about $600,000 at about 70 US cents to the Australian dollar.<sup class="fnwrap"><a href="#src-20" aria-label="Source 20">20</a>,<a href="#src-32" aria-label="Source 32">32</a>,<a href="#src-33" aria-label="Source 33">33</a>,<a href="#src-34" aria-label="Source 34">34</a></sup> Australia: $289.7 billion shared by 27.9 million people.<sup class="fnwrap"><a href="#src-21" aria-label="Source 21">21</a>,<a href="#src-29" aria-label="Source 29">29</a></sup> Qatar's fund is estimated at about US$600 billion, kept for a few hundred thousand citizens, a small minority of the people who live there.<sup class="fnwrap"><a href="#src-30" aria-label="Source 30">30</a></sup> We didn't draw Qatar's bar. It wouldn't fit. And yes, Norway has a fifth of our people. Shared among its 5.64 million, our Future Fund would still be only about $51,000 each.</p>
+    </div>
+
+    <form class="household" id="household" onsubmit="return false">
+      <fieldset>
+        <legend>How many people in your household?</legend>
+        <div class="seg">
+          <label><input type="radio" name="people" id="p1" value="1"><span>1</span></label>
+          <label><input type="radio" name="people" id="p2" value="2"><span>2</span></label>
+          <label><input type="radio" name="people" id="p3" value="3"><span>3</span></label>
+          <label><input type="radio" name="people" id="p4" value="4" checked><span>4</span></label>
+          <label><input type="radio" name="people" id="p5" value="5"><span>5</span></label>
+          <label><input type="radio" name="people" id="p6" value="6"><span>6</span></label>
+        </div>
+      </fieldset>
+      <div class="split" aria-live="polite">
+        <div><p class="k">Norway's savings, for <span id="people-out">4 people</span></p><p class="v" data-per-person="600000">$2.4m</p></div>
+        <div><p class="k">Australia's savings, same household</p><p class="v us" data-per-person="10400">$41,600</p></div>
+      </div>
+      <p class="note">Nobody gets this as a cheque. Norway spends part of the fund's returns through its budget every year. The point is that the money exists. We're not promising Norway's number. We're asking why ours is $10,400.</p>
+    </form>
+  </div>
+</section>
+
+<section class="band" id="kill" aria-labelledby="kill-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="kill-h" class="display h2">How to kill a country in three easy steps</h2>
+      <div class="kit"><p><b>Time needed:</b> about 30 years</p><p><b>Tools:</b> two major parties</p><p><b>Difficulty:</b> easy, apparently</p></div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p class="n" aria-hidden="true">1</p>
+        <h3>Stop making things.</h3>
+        <ul class="facts">
+          <li>Our last car factory closed in 2017, after $30 billion of help.<sup class="fnwrap"><a href="#src-18" aria-label="Source 18">18</a>,<a href="#src-19" aria-label="Source 19">19</a></sup></li>
+          <li>Iron ore, coal, gas, gold and crude oil made up about 64% of our goods exports in 2024.<sup class="fnwrap"><a href="#src-74" aria-label="Source 74">74</a></sup></li>
+          <li>Harvard ranks our economy 74th of 145 for complexity, its measure of how many different, hard-to-make things a country sells. That puts us second-last of the OECD countries it ranks.<sup class="fnwrap"><a href="#src-75" aria-label="Source 75">75</a>,<a href="#src-76" aria-label="Source 76">76</a></sup></li>
+        </ul>
+      </div>
+      <div class="step">
+        <p class="n" aria-hidden="true">2</p>
+        <h3>Turn shelter into a casino.</h3>
+        <ul class="facts">
+          <li>Since 1999, investors have paid tax on only half their capital gains, on shares as well as houses. That cost $21.8 billion in 2025-26, and in 2022-23 about 83% of the benefit went to the top 10% of taxpayers.<sup class="fnwrap"><a href="#src-70" aria-label="Source 70">70</a></sup></li>
+          <li>In 2022-23, 1.2 million people took rental losses off their wages and other income, cutting their tax by about $3.9 billion.<sup class="fnwrap"><a href="#src-70" aria-label="Source 70">70</a></sup></li>
+          <li>In the five years to September 2025, household incomes rose 20%. Home values rose 53.5%. By then a home cost a record 8.2 times the median household income.<sup class="fnwrap"><a href="#src-22" aria-label="Source 22">22</a></sup></li>
+        </ul>
+      </div>
+      <div class="step">
+        <p class="n" aria-hidden="true">3</p>
+        <h3>Make the casino bigger than the country.</h3>
+        <ul class="facts">
+          <li>Our homes are worth $12.7 trillion: about 4.3 times a year's GDP, and 3.9 times everything on the stock exchange.<sup class="fnwrap"><a href="#src-77" aria-label="Source 77">77</a></sup></li>
+          <li>We're 124,000 homes behind our own building target.<sup class="fnwrap"><a href="#src-78" aria-label="Source 78">78</a></sup></li>
+          <li>When it all goes wrong, tell voters to blame whoever arrived last.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="result">Congratulations. You now have a very expensive country that makes very little.</p>
+  </div>
+</section>
+
+<section class="band gaslit" id="gaslit" aria-labelledby="gaslit-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="gaslit-h" class="display h2"><svg class="flame" viewBox="0 0 24 34" aria-hidden="true"><path d="M12 0C14 7 22 11 22 21a10 10 0 0 1-20 0C2 15 6 12 7 7c2 4 4 5 5 5C12 8 11 4 12 0z"/><path class="core" d="M12 16c1 3 5 5 5 9a5 5 0 0 1-10 0c0-3 2-4 3-7 1 1 1 2 2 2 0-1 0-3 0-4z"/></svg><span>You've been gaslit</span></h2>
+      <p class="define"><b>Gaslit:</b> told that the problem you can see isn't real, or that it's your fault, or someone else's.</p>
+      <p class="lede">Australia is a world-class exporter of gas. And of gaslighting. Both major parties are fluent in it. Here is what they said and what the record shows, with the clip or transcript, so you can judge for yourself.</p>
+      <p class="rules">Exact words, dated and linked to the original. The same rules for both major parties. Calling it gaslighting is our opinion. We don't say anyone lied: the record beside each quote is there so you can test it. Clips and transcripts open on the original site or a copy of it.</p>
+    </div>
+    <div class="cards">
+<!-- cards:start -->
+        <article class="gcard">
+          <div class="meta"><span class="kind">You&#x27;re imagining it</span><span class="party">Liberal</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“No. Look, if housing were unaffordable in Sydney, no one would be buying it. People are purchasing housing in Sydney, it&#x27;s expensive.”</blockquote><p class="who">Joe Hockey, Treasurer, 9 June 2015, asked if Sydney housing was unaffordable. In the same answer he said “the best way to address inflated house prices in Sydney is to build more properties”. Same press conference: “The starting point for a first home buyer is to get a good job that pays good money.”</p></div>
+          <div class="record"><p class="label">The record</p><p>Three months earlier the Reserve Bank reported that investor loan approvals in NSW had risen almost 150% in three years, to almost half the value of all housing loan approvals in the state, while first home buyers were “a low and declining share of the mortgage market”. More and more of the buyers were investors.<sup class="fnwrap"><a href="#src-79" aria-label="Source 79">79</a>,<a href="#src-80" aria-label="Source 80">80</a></sup></p></div>
+          <p class="links"><a href="https://www.youtube.com/watch?v=rPTGcnVHvag" target="_blank" rel="noopener">Watch the clip (ABC, 22 sec)</a><a href="https://web.archive.org/web/20151223033824/http://jbh.ministers.treasury.gov.au/transcript/143-2015/" target="_blank" rel="noopener">Read the transcript</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">You&#x27;re imagining it</span><span class="party">Labor</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“We, of course, made changes to the PRRT in our first term. What we&#x27;re concentrating on at the moment is supply. There has been no windfall of gas prices in Australia.”</blockquote><p class="who">Anthony Albanese, Prime Minister, 28 April 2026, asked on ABC Radio Perth whether he would rule out a gas tax.</p></div>
+          <div class="record"><p class="label">The record</p><p>His Budget two weeks later said LNG spot prices were at “elevated levels”, expected higher energy export prices, mainly LNG, to lift company tax by $19.0 billion in the near term, and raised the gas profits tax forecast by $400 million. He may have meant domestic prices, which are capped.<sup class="fnwrap"><a href="#src-81" aria-label="Source 81">81</a>,<a href="#src-82" aria-label="Source 82">82</a></sup></p></div>
+          <p class="links"><a href="https://www.pm.gov.au/media/radio-interview-abc-perth-7" target="_blank" rel="noopener">Read the transcript</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">Their own Treasury disagreed</span><span class="party">Liberal</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“And what Bill Shorten has done, he has set out to smash the residential housing market.”</blockquote><p class="who">Malcolm Turnbull, Prime Minister, 19 February 2016, on Labor&#x27;s plan to limit negative gearing.</p></div>
+          <div class="record"><p class="label">The record</p><p>Treasury&#x27;s advice to Treasurer Scott Morrison in early 2016, released under freedom of information in 2018, said there could be “some downward pressure” on prices in the short term, but “Overall, price changes are likely to be small.”<sup class="fnwrap"><a href="#src-83" aria-label="Source 83">83</a>,<a href="#src-84" aria-label="Source 84">84</a></sup></p></div>
+          <p class="links"><a href="https://pmtranscripts.pmc.gov.au/release/transcript-40197" target="_blank" rel="noopener">Read the transcript</a><a href="https://www.abc.net.au/news/2018-01-08/govt-negative-gearing-claims-contradicted-by-official-advice-foi/9309736" target="_blank" rel="noopener">Read the Treasury advice (ABC)</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">Trust us</span><span class="party">Labor</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“That&#x27;s an ambitious target, but I&#x27;m confident that we can get there if everyone does their bit.”</blockquote><p class="who">Jim Chalmers, Treasurer, 10 May 2026, on the 1.2 million homes target. He added: “It will be difficult to get there.”</p></div>
+          <div class="record"><p class="label">The record</p><p>Ten days earlier the government&#x27;s own National Housing Supply and Affordability Council forecast about 980,000 homes by mid-2029, with 1.2 million reached around September 2030. After two years the country was 124,183 homes behind an even pace. A 2025 Treasury brief to the government said the target “will not be met”.<sup class="fnwrap"><a href="#src-78" aria-label="Source 78">78</a>,<a href="#src-85" aria-label="Source 85">85</a>,<a href="#src-86" aria-label="Source 86">86</a>,<a href="#src-87" aria-label="Source 87">87</a></sup></p></div>
+          <p class="links"><a href="https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/transcripts/joint-press-conference-belconnen-canberra" target="_blank" rel="noopener">Read the transcript</a><a href="https://www.youtube.com/watch?v=R6Z-yMxosz8" target="_blank" rel="noopener">Watch: Treasury&#x27;s 2025 advice (ABC)</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">It&#x27;s someone else&#x27;s fault</span><span class="party">Liberal</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“The government&#x27;s brought in a million people, all of whom want homes ... the demand that the Prime Minister has generated has really created a housing crisis.”</blockquote><p class="who">Peter Dutton, Opposition Leader, ABC leaders&#x27; debate, 16 April 2025.</p></div>
+          <div class="record"><p class="label">The record</p><p>In 2020-21, with the borders shut for COVID, net overseas migration was a loss of 88,800 people, the first since 1946. Capital-city home prices still rose 23.7% in 2021, the biggest annual rise since the ABS index began in 2003, with interest rates at a record low. In September 2022 he had said “we do need an increase in the migration numbers”. Migration adds to demand. It didn&#x27;t create this crisis on its own.<sup class="fnwrap"><a href="#src-88" aria-label="Source 88">88</a>,<a href="#src-89" aria-label="Source 89">89</a>,<a href="#src-90" aria-label="Source 90">90</a>,<a href="#src-91" aria-label="Source 91">91</a>,<a href="#src-92" aria-label="Source 92">92</a></sup></p></div>
+          <p class="links"><a href="https://www.youtube.com/watch?v=_VfkVB2eX7U&amp;t=431s" target="_blank" rel="noopener">Watch the clip (ABC debate, at 7:11)</a><a href="https://www.aap.com.au/factcheck/experts-reject-claim-labor-created-housing-crisis/" target="_blank" rel="noopener">Read AAP FactCheck</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">It&#x27;s someone else&#x27;s fault</span><span class="party">Liberal</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“But the biggest problem with access to housing is that, under Labor, immigration numbers are too high.”</blockquote><p class="who">Angus Taylor, Opposition Leader, Budget reply speech, 14 May 2026.</p></div>
+          <div class="record"><p class="label">The record</p><p>By the time of this speech net overseas migration had already fallen from a record 538,000 in 2022-23 to 306,000 in 2024-25, though still above where it was before the pandemic. In the same speech he promised to repeal the 2026 limits on negative gearing and the capital gains discount.<sup class="fnwrap"><a href="#src-93" aria-label="Source 93">93</a>,<a href="#src-94" aria-label="Source 94">94</a>,<a href="#src-95" aria-label="Source 95">95</a></sup></p></div>
+          <p class="links"><a href="https://www.liberal.org.au/2026/05/14/budget-address-in-reply" target="_blank" rel="noopener">Read the speech</a><a href="https://www.openaustralia.org.au/debates/?id=2026-05-14.128.3" target="_blank" rel="noopener">Read Hansard (OpenAustralia)</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">It wasn&#x27;t us</span><span class="party">Labor</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“It was left in an almighty mess from the Nationals and the Liberals when we came into government.”</blockquote><p class="who">Madeleine King, Resources Minister, 8 May 2026, on the east-coast gas market.</p></div>
+          <div class="record"><p class="label">The record</p><p>In October 2010 Labor&#x27;s environment minister, Tony Burke, gave conditional approval to two Gladstone LNG export projects. The competition regulator says LNG demand pulled gas away from traditional domestic supply. Both sides built this market.<sup class="fnwrap"><a href="#src-96" aria-label="Source 96">96</a>,<a href="#src-97" aria-label="Source 97">97</a>,<a href="#src-98" aria-label="Source 98">98</a></sup></p></div>
+          <p class="links"><a href="https://www.minister.industry.gov.au/king/media/interview-steve-austin-abc-brisbane" target="_blank" rel="noopener">Read the transcript</a><a href="https://www.sbs.com.au/news/article/major-coal-seam-gas-projects-approved/jtthhg42x" target="_blank" rel="noopener">Read: the 2010 approvals (SBS)</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">We fixed it</span><span class="party">Liberal</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“These changes will ensure production of our petroleum resources are taxed appropriately while continuing to support the development of our world leading LNG industry.”</blockquote><p class="who">Josh Frydenberg, Treasurer, 2 November 2018, on changes to the gas profits tax.</p></div>
+          <div class="record"><p class="label">The record</p><p>The same release promised “Existing investments will be respected”, so existing projects kept their deductions. In 2023 the Budget said “not a single LNG project has paid any PRRT”. In 2021-22, the Coalition&#x27;s last full year, the gas profits tax raised $1.64 billion and the beer tax $2.46 billion.<sup class="fnwrap"><a href="#src-2" aria-label="Source 2">2</a>,<a href="#src-99" aria-label="Source 99">99</a></sup></p></div>
+          <p class="links"><a href="https://web.archive.org/web/20200227043253/https://ministers.treasury.gov.au/ministers/josh-frydenberg-2018/media-releases/government-responds-callaghan-prrt-review" target="_blank" rel="noopener">Read the release (archived)</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">We fixed it</span><span class="party">Labor</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“The Albanese Government is reforming the Petroleum Resource Rent Tax (PRRT) to deliver a fairer return to the Australian community from their natural resources.”</blockquote><p class="who">Jim Chalmers, Treasurer, 6 August 2024.</p></div>
+          <div class="record"><p class="label">The record</p><p>In the three years from 2023-24 the gas profits tax raised $1.14bn, $1.42bn and $1.42bn: less than the beer tax every year ($2.60bn, $2.73bn, $2.68bn), and under half what the 2023 Budget expected. Treasury points to lower oil prices and a law that passed late. Gas companies pay company tax on top.<sup class="fnwrap"><a href="#src-2" aria-label="Source 2">2</a>,<a href="#src-7" aria-label="Source 7">7</a>,<a href="#src-26" aria-label="Source 26">26</a>,<a href="#src-27" aria-label="Source 27">27</a>,<a href="#src-82" aria-label="Source 82">82</a>,<a href="#src-100" aria-label="Source 100">100</a></sup></p></div>
+          <p class="links"><a href="https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/media-releases/implementing-reforms-petroleum-resource-rent-tax" target="_blank" rel="noopener">Read the release</a></p>
+        </article>
+        <article class="gcard">
+          <div class="meta"><span class="kind">Not what it looks like</span><span class="party">Labor</span></div>
+          <div class="said"><p class="label">They said</p><blockquote>“This is not a privatisation in anybody&#x27;s language.”</blockquote><p class="who">Tim Pallas, Victorian Treasurer, 1 July 2022, on the VicRoads deal.</p></div>
+          <div class="record"><p class="label">The record</p><p>His government&#x27;s own release says private investors paid “$7.9 billion in upfront proceeds” for a 40-year joint venture to run vehicle registration and licensing, while the state keeps ownership. AAP&#x27;s headline: “VicRoads partially privatised for $7.9b”.<sup class="fnwrap"><a href="#src-101" aria-label="Source 101">101</a>,<a href="#src-102" aria-label="Source 102">102</a>,<a href="#src-103" aria-label="Source 103">103</a></sup></p></div>
+          <p class="links"><a href="https://www.abc.net.au/news/2022-07-01/victorian-government-finalises-vicroads-overhaul/101200146" target="_blank" rel="noopener">Read the ABC report</a><a href="https://www.premier.vic.gov.au/sites/default/files/2022-07/220701%20-%20Better%20Deal%20For%20Drivers%2C%20And%20Billions%20For%20Victorian%20Future%20Fund.pdf" target="_blank" rel="noopener">Read the government&#x27;s release</a></p>
+        </article>
+        <!-- cards:end -->
+    </div>
+    <p class="tally">Tally so far: Labor 5, Coalition 5. We keep it even, and we fix mistakes in public.</p>
+    <p class="signature">You're not imagining it.</p>
+  </div>
+</section>
+
+<section class="band alt" id="quiz" aria-labelledby="quiz-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="quiz-h" class="display h2">Pop quiz: who took your house?</h2>
+      <p class="lede">For anyone who's been told migrants took their house.</p>
+    </div>
+    <div class="quiz">
+      <p class="q">You got outbid at the auction again. Who's to blame?</p>
+      <div class="answers">
+        <button class="answer" type="button" aria-pressed="false" data-verdict="He rents too. More than 60% of Australia's qualified engineers were born overseas. We brought in the people who build things, then didn't build enough things."><span class="letter">A</span><span>The engineer from Manchester who moved in next door.</span></button>
+        <button class="answer" type="button" aria-pressed="false" data-verdict="She isn't the landlord. She's paying one, and the tax breaks go to the landlord."><span class="letter">B</span><span>The international student sharing a room with three others.</span></button>
+        <button class="answer right" type="button" aria-pressed="false" data-right data-verdict="Since 1999, investors have paid tax on only half their capital gains, houses included, at a cost of $21.8 billion in 2025-26 alone. And we're 124,000 homes behind our own target. Check who's holding the gavel."><span class="letter">C</span><span>Decades of tax breaks for owning houses instead of building them.</span></button>
+        <button class="answer" type="button" aria-pressed="false" data-verdict="We checked. It wasn't the avocado."><span class="letter">D</span><span>Smashed avocado.</span></button>
+      </div>
+      <p class="verdict" id="verdict" aria-live="polite" hidden></p>
+      <p class="quiz-src">Facts in the answers come from Engineers Australia, the Treasury and the national housing target figures.<sup class="fnwrap"><a href="#src-70" aria-label="Source 70">70</a>,<a href="#src-78" aria-label="Source 78">78</a>,<a href="#src-104" aria-label="Source 104">104</a></sup></p>
+      <p class="quiz-share">Know someone who keeps getting outbid? <a href="#share">Send them this.</a></p>
+    </div>
+
+    <div class="aside-migrants">
+      <h3>Yes, we want less migration too.</h3>
+      <p>So do plenty of migrants. They've seen the rent. Our founder is one of them.</p>
+      <p>Net overseas migration hit a record 538,000 in 2022-23 and has since fallen to about 292,000 in the year to March 2026. Homes haven't kept up. In the first two years of the 1.2 million homes target, we finished 355,817, about 124,000 short.<sup class="fnwrap"><a href="#src-78" aria-label="Source 78">78</a>,<a href="#src-94" aria-label="Source 94">94</a></sup></p>
+      <p>Just be clear about who sold the gas and the blood lab, and leased out the port. It wasn't anyone on a student visa. Visa fees raised $4.66 billion in 2025-26. The gas profits tax raised $1.42 billion.<sup class="fnwrap"><a href="#src-7" aria-label="Source 7">7</a></sup></p>
+    </div>
+  </div>
+</section>
+
+<section class="band homeowner" id="homeowner" aria-labelledby="homeowner-h">
+  <div class="wrap">
+    <div class="letter">
+      <h2 id="homeowner-h" class="display">Dear homeowner: this isn't about you. It's about the rules.</h2>
+      <p>If you own the home you live in, a higher price mostly lives on a property website. Sell to move, and the next home has gone up too, plus stamp duty.<sup class="fnwrap"><a href="#src-105" aria-label="Source 105">105</a></sup> There's nowhere cheaper to go, either: by September 2025 a regional home cost 8.1 times income, against 8.2 in the capitals.<sup class="fnwrap"><a href="#src-22" aria-label="Source 22">22</a></sup></p>
+      <p>The gain turns into spending money only if you sell and buy less, or borrow against it. That means downsizers, people moving overseas, investors selling to the next buyer, and heirs. The Productivity Commission says people inherit at about 50 on average, which is a long wait for a deposit.<sup class="fnwrap"><a href="#src-106" aria-label="Source 106">106</a></sup></p>
+      <p>The bill goes to whoever buys next: the young, people who came here to build a life, and our own kids. They're bidding against people who already own and bring their gains with them. Existing owners take about 65% of new owner-occupier home loans.<sup class="fnwrap"><a href="#src-22" aria-label="Source 22">22</a></sup> Home ownership among 30-to-34-year-olds fell from 64% in 1971 to 50% in 2021.<sup class="fnwrap"><a href="#src-107" aria-label="Source 107">107</a></sup></p>
+      <p>Then there are the rules. Since 1999, investors have paid tax on only half their capital gains.<sup class="fnwrap"><a href="#src-70" aria-label="Source 70">70</a></sup> In 2026 Labor limited negative gearing to new builds, and let every investor who'd already bought keep it. The Coalition has promised to undo even that.<sup class="fnwrap"><a href="#src-71" aria-label="Source 71">71</a>,<a href="#src-95" aria-label="Source 95">95</a></sup> So here's the slogan neither of them will put on a corflute.</p>
+      <p class="punchline">You're a millionaire. Valid only with a one-way ticket out.</p>
+    </div>
+  </div>
+</section>
+
+<section class="flip" id="plan" aria-labelledby="plan-h">
+  <div class="wrap">
+    <p class="kicker">Our plan</p>
+    <h2 id="plan-h" class="display">This time, we're setting a reserve.</h2>
+    <p class="lede">Charge for the gas. Build the homes. Bank the rest. Some of this the Greens want, and some of it the Coalition wants.<sup class="fnwrap"><a href="#src-95" aria-label="Source 95">95</a>,<a href="#src-108" aria-label="Source 108">108</a></sup> We want all of it, and we answer to neither.</p>
+    <div class="planks">
+      <div class="plank">
+        <h3>Tax gas profits properly.</h3>
+        <p>Norway's tax rate on petroleum profits is 78%.<sup class="fnwrap"><a href="#src-31" aria-label="Source 31">31</a></sup> By the Superpower Institute's estimate, Australia takes about 18% of the gas industry's cash flow in tax, against more than 75% elsewhere.<sup class="fnwrap"><a href="#src-8" aria-label="Source 8">8</a></sup> A 25% levy on gas exports would raise about $17 billion a year, on the Australia Institute's estimate.<sup class="fnwrap"><a href="#src-109" aria-label="Source 109">109</a></sup></p>
+        <p class="ex">That's more than six times the beer tax.</p>
+      </div>
+      <div class="plank">
+        <h3>House everyone first.</h3>
+        <p>122,494 people were homeless on Census night 2021.<sup class="fnwrap"><a href="#src-23" aria-label="Source 23">23</a></sup> Housing them comes before any tax cut.</p>
+      </div>
+      <div class="plank">
+        <h3>Stop making Australians pay a fortune to stay in Australia.</h3>
+        <p>If every home doubles, a family that stays put gets a bigger number, not a bigger house. Their next home doubled too, and so did their kids' first one. In the five years to September 2025, home values rose 53.5% and household incomes 20%.<sup class="fnwrap"><a href="#src-22" aria-label="Source 22">22</a></sup> Finish the job on negative gearing and the capital gains discount, with no carve-out for investors who already own.<sup class="fnwrap"><a href="#src-71" aria-label="Source 71">71</a></sup> Build public and community housing, and don't stop. If you've just bought, we're not out to crash your price. We want house prices to stand still while incomes catch up.</p>
+      </div>
+      <div class="plank">
+        <h3>Match migration to homes.</h3>
+        <p>Set each year's intake by the number of homes finished the year before. Nobody should arrive in a country with nowhere to live, and nobody already here should be left without a home either. The Coalition now promises a cap like this too. It also promises to bring back the investor tax breaks. We wouldn't.<sup class="fnwrap"><a href="#src-93" aria-label="Source 93">93</a>,<a href="#src-95" aria-label="Source 95">95</a></sup></p>
+      </div>
+      <div class="plank">
+        <h3>Bank it, and pay every Australian a dividend.</h3>
+        <p>Put the money in a national wealth fund, as Norway does, and pay a yearly dividend from it, as Alaska has paid its residents since 1982. In 2026 it was US$1,200 a person, including a US$200 energy relief payment.<sup class="fnwrap"><a href="#src-110" aria-label="Source 110">110</a></sup></p>
+      </div>
+      <div class="plank">
+        <h3>Build things again.</h3>
+        <p>We mine about a third of the world's lithium.<sup class="fnwrap"><a href="#src-111" aria-label="Source 111">111</a></sup> Refine it here. Make our own fuel. Train our own engineers and tradies, and give them something to build.</p>
+      </div>
+      <div class="plank">
+        <h3>Keep the next Bluey.</h3>
+        <p>When public money helps make something, the rights stay here. The same goes for the next port and the next lab.</p>
+      </div>
+      <div class="plank">
+        <h3>Legalise cannabis. Then actually tax it.</h3>
+        <p>Let adults grow and buy it legally. The ACT has allowed home growing since 2020.<sup class="fnwrap"><a href="#src-112" aria-label="Source 112">112</a></sup> The Parliamentary Budget Office costed the Greens' plan for a national legal market at an $8.7 billion budget gain over the 11 years to 2035-36.<sup class="fnwrap"><a href="#src-108" aria-label="Source 108">108</a></sup></p>
+        <p class="ex">The first crop we'd charge properly for.</p>
+      </div>
+    </div>
+    <p class="closing">A country that ships about as much gas as Qatar shouldn't have 122,494 people homeless. That was the count on Census night 2021.<sup class="fnwrap"><a href="#src-23" aria-label="Source 23">23</a>,<a href="#src-28" aria-label="Source 28">28</a></sup></p>
+  </div>
+</section>
+
+<section class="join" id="join" aria-labelledby="join-h">
+  <div class="wrap band">
+    <h2 id="join-h" class="display">Set the reserve</h2>
+    <p class="lede">We need 1,500 members to register as a federal party.<sup class="fnwrap"><a href="#src-113" aria-label="Source 113">113</a></sup> Membership is free. Australia has never been good at charging for things, but we're learning.</p>
+    <p class="join-note">To count towards the 1,500, you need to be enrolled to vote. The Electoral Commission checks the member list against the roll and contacts some members to confirm they joined.<sup class="fnwrap"><a href="#src-114" aria-label="Source 114">114</a></sup></p>
+    <p class="soon"><b>Membership sign-up opens soon.</b> Until then, share the page.</p>
+    <div class="share-box" id="share">
+      <div class="share-item">
+        <label for="share-text"><b>Copy this and post it anywhere</b></label>
+        <textarea class="share-text" id="share-text" readonly>Aussie! Aussie! Aussie! Sold! Sold! Sold! Houses: sold to the highest bidder. Gas: sold to the lowest. In 2025-26 our beer tax raised more than our gas profits tax. Tax Gas Profits, Build Homes is a new party, and this time we're setting a reserve. #TaxGasProfits https://taxgasprofits.au</textarea>
+        <div class="share-row"><button class="btn btn-ink" type="button" data-copy="share-text">Copy text</button><p class="copied" aria-live="polite"></p></div>
+      </div>
+      <div class="share-item">
+        <label for="share-text-2"><b>Or send this to a mate</b></label>
+        <textarea class="share-text" id="share-text-2" readonly>You're not imagining it. Visa fees raised $4.66 billion in 2025-26. Our gas profits tax raised $1.42 billion. Ask your MP why. #TaxGasProfits https://taxgasprofits.au</textarea>
+        <div class="share-row"><button class="btn btn-ink" type="button" data-copy="share-text-2">Copy text</button><p class="copied" aria-live="polite"></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="receipts" aria-labelledby="receipts-h">
+  <div class="wrap">
+    <h2 id="receipts-h" class="display">The receipts</h2>
+    <p>Every number on this page, and where it came from. Checked on 29 October 2026.</p>
+    <ol class="sources">
+<li id="src-1">Geoscience Australia, Area of Australia, states and territories. <a href="https://www.ga.gov.au/scientific-topics/national-location-information/dimensions/area-of-australia-states-and-territories" rel="noopener" target="_blank">ga.gov.au</a></li>
+<li id="src-2">Australian Government, Budget Paper No. 1 2023-24 (2021-22 beer and PRRT receipts; &#x27;to date, not a single LNG project has paid any PRRT&#x27;). <a href="https://archive.budget.gov.au/2023-24/bp1/download/bp1_2023-24.pdf" rel="noopener" target="_blank">archive.budget.gov.au</a></li>
+<li id="src-3">Screen Queensland, New preschool animated series Bluey from Ludo Studio, July 2017. <a href="https://screenqueensland.com.au/sq-news/media-centre/new-preschool-animated-series-bluey-from-award-winning-ludo-studio/" rel="noopener" target="_blank">screenqueensland.com.au</a> <a href="https://kidscreen.com/2017/07/20/bbc-worldwide-abc-kids-co-commission-bluey" rel="noopener" target="_blank">kidscreen.com</a></li>
+<li id="src-4">Wikipedia, Bluey (2018 TV series) (the BBC reportedly invested about 30% of the funding for global distribution and merchandising rights). <a href="https://en.wikipedia.org/wiki/Bluey_(TV_series)" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-5">Mumbrella, ABC boss Hugh Marks says Bluey blunder was a $300m rights miss, April 2026. <a href="https://mumbrella.com.au/abc-boss-hugh-marks-says-bluey-blunder-was-a-300m-rights-miss-921746" rel="noopener" target="_blank">mumbrella.com.au</a></li>
+<li id="src-6">Department of Industry, Science and Resources, Resources and Energy Quarterly, September 2026 (LNG export earnings A$57bn in 2025-26), release as republished by Mirage News, 2 Oct 2026. <a href="https://www.miragenews.com/australias-resources-and-energy-export-earnings-1754051/" rel="noopener" target="_blank">miragenews.com</a> <a href="https://www.industry.gov.au/sites/default/files/2026-10/resources-and-energy-quarterly-september-2026.pdf" rel="noopener" target="_blank">industry.gov.au</a></li>
+<li id="src-7">Australian Government, 2025-26 Final Budget Outcome, Part 1 (PRRT A$1,416m, beer excise and duty A$2,683m, visa charges A$4.66bn), 28 Sep 2026. <a href="https://archive.budget.gov.au/2025-26/fbo/download/01_part_1.pdf" rel="noopener" target="_blank">archive.budget.gov.au</a></li>
+<li id="src-8">ABC News, Senate gas tax inquiry hearing, 22 Apr 2026 (Shell: A$109m PRRT in 2025, none in the previous decade; Superpower Institute: about 18% of cash flow). <a href="https://www.abc.net.au/news/2026-04-22/gas-tax-prrt-windfall-profits-greens-parliamentary-inquiry-shell/106593968" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-9">The Australia Institute (progressive think tank), Taxing gas in Australia and Japan, 2026 (estimate: Japan&#x27;s petroleum and coal tax raises about A$710m a year from Australian gas). <a href="https://australiainstitute.org.au/report/taxing-gas-in-australia-and-japan/" rel="noopener" target="_blank">australiainstitute.org.au</a></li>
+<li id="src-10">The Point (Australia Institute), How the Japanese government taxes Australian gas, 8 May 2026 (ATO submission: LNG exporters paid about A$1.2bn PRRT from July 2023 to April 2026). <a href="https://thepoint.com.au/explainers/260508-how-the-japanese-government-taxes-australian-gas" rel="noopener" target="_blank">thepoint.com.au</a></li>
+<li id="src-11">Australian National Audit Office, Report No. 14 1995-96, on the sale of CSL (float raised A$299m; average price of fractionated products up 147% from 1 Jan 1994). <a href="https://anao.gov.au/sites/default/files/ANAO_Report_1995-96_14.pdf" rel="noopener" target="_blank">anao.gov.au</a></li>
+<li id="src-12">StockAnalysis, CSL market capitalisation (about A$94bn on 27 Oct 2026). <a href="https://stockanalysis.com/quote/asx/CSL/market-cap/" rel="noopener" target="_blank">stockanalysis.com</a></li>
+<li id="src-13">ABC News, Chinese company Landbridge wins 99-year Darwin Port lease, 13 Oct 2015. <a href="https://www.abc.net.au/news/2015-10-13/chinese-company-landbridge-wins-99-year-darwin-port-lease/6850870" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-14">Cheung Kong Infrastructure, announcement on ETSA Utilities and ETSA Power, December 1999. <a href="https://cki.com.hk/english/whatsNew/1999/19991231.htm" rel="noopener" target="_blank">cki.com.hk</a> <a href="https://cki.com.hk/english/PDF_file/announcement/1999/19991213.pdf" rel="noopener" target="_blank">cki.com.hk</a></li>
+<li id="src-15">Wikipedia, Electricity Trust of South Australia (privatised in 1999 by the Olsen Liberal government, which had promised at the 1997 election not to). <a href="https://en.wikipedia.org/wiki/Electricity_Trust_of_South_Australia" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-16">Australian National Audit Office, Report No. 43 2002-03, sale of Sydney Airport (A$4.233bn). <a href="https://www.anao.gov.au/sites/default/files/anao_report_2002-2003_43.pdf" rel="noopener" target="_blank">anao.gov.au</a></li>
+<li id="src-17">Australian Aviation, Consortium takes the reins at Sydney Airport, March 2022 (A$23.6bn). <a href="https://australianaviation.com.au/2022/03/consortium-takes-the-reins-at-sydney-airport/" rel="noopener" target="_blank">australianaviation.com.au</a></li>
+<li id="src-18">Productivity Commission, Australia&#x27;s Automotive Manufacturing Industry, 2014, Finding 4.1 (about A$30bn of assistance, 1997 to 2012, in 2011-12 dollars). <a href="https://assets.pc.gov.au/inquiries/completed/automotive/report/automotive.pdf" rel="noopener" target="_blank">assets.pc.gov.au</a></li>
+<li id="src-19">Wikipedia, Automotive industry in Australia (last factory, Holden Elizabeth, closed 20 Oct 2017). <a href="https://en.wikipedia.org/wiki/Automotive_industry_in_Australia" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-20">Norges Bank Investment Management, key figures Q3 2026 (fund value NOK 22,014bn at 30 Sep 2026). <a href="https://www.nbim.no/en/news-and-insights/1q-3q/key-figures-q3-2026/" rel="noopener" target="_blank">nbim.no</a></li>
+<li id="src-21">Treasurer, Future Fund&#x27;s strong returns continue, 26 Aug 2026; Newcastle Herald (AAP), Future Fund head exits on top with 14.8 per cent return, 26 Aug 2026 (A$289.7bn at 30 Jun 2026). <a href="https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/media-releases/future-funds-strong-returns-continue-under-modernised" rel="noopener" target="_blank">ministers.treasury.gov.au</a> <a href="https://www.newcastleherald.com.au/story/9337833/future-fund-head-exits-on-top-with-148-per-cent-return/" rel="noopener" target="_blank">newcastleherald.com.au</a></li>
+<li id="src-22">Cotality and ANU, Housing Affordability Report, November 2025 (8.2 times income; five-year income growth 20.0%, home value growth 53.5%; regional 8.1 vs capitals 8.2 times income; around 65% of new owner-occupier loans go to existing owners). <a href="https://discover.cotality.com/hubfs/Article-Reports/2511-Cotality-Housing-Affordability-Report-November-FINAL.pdf" rel="noopener" target="_blank">discover.cotality.com</a></li>
+<li id="src-23">Australian Bureau of Statistics, Estimating homelessness: Census 2021 (122,494 people). <a href="https://www.abs.gov.au/statistics/people/housing/estimating-homelessness-census/latest-release" rel="noopener" target="_blank">abs.gov.au</a></li>
+<li id="src-24">Boiling Cold, PRRT: Australia&#x27;s gas tax that does not work (offshore LNG projects pay no royalty; the North West Shelf and Queensland&#x27;s LNG plants do). <a href="https://www.boilingcold.com.au/prrt-australias-gas-tax-that-does-not-work/" rel="noopener" target="_blank">boilingcold.com.au</a></li>
+<li id="src-25">Australian Government, Budget Paper No. 1 2024-25, Statement 5 (2022-23 beer and PRRT receipts). <a href="https://archive.budget.gov.au/2024-25/bp1/download/bp1_bs-5.pdf" rel="noopener" target="_blank">archive.budget.gov.au</a></li>
+<li id="src-26">Australian Government, Budget Paper No. 1 2025-26, Statement 4 (2023-24 beer and PRRT receipts). <a href="https://archive.budget.gov.au/2025-26/bp1/download/bp1_bs-4.pdf" rel="noopener" target="_blank">archive.budget.gov.au</a></li>
+<li id="src-27">Australian Government, Budget Paper No. 1 2026-27, Statement 5 (beer and PRRT receipts and forecasts to 2029-30), May 2026. <a href="https://budget.gov.au/content/bp1/download/bp1_bs-5.pdf" rel="noopener" target="_blank">budget.gov.au</a></li>
+<li id="src-28">International Gas Union, World LNG Report 2026 (2025 exports: US 110.7 Mt, Qatar 81.5 Mt, Australia 80.3 Mt; Japan imported 26.6 Mt from Australia). <a href="https://www.datocms-assets.com/146580/1783403747-igu-world-lng-report-2026.pdf" rel="noopener" target="_blank">datocms-assets.com</a> <a href="https://tass.com/economy/2156691" rel="noopener" target="_blank">tass.com</a></li>
+<li id="src-29">Australian Bureau of Statistics, Australia&#x27;s population grows (27.9 million at 31 Mar 2026). <a href="https://www.abs.gov.au/media-centre/media-releases/australias-population-grows-14-march-2026" rel="noopener" target="_blank">abs.gov.au</a></li>
+<li id="src-30">Wikipedia, Qatar Investment Authority (estimated US$600bn); Gulf Labour Markets and Migration, Qatar population by nationality at the censuses (estimate: about 340,000 Qataris of 2.85 million people in 2020). <a href="https://en.wikipedia.org/wiki/Qatar_Investment_Authority" rel="noopener" target="_blank">en.wikipedia.org</a> <a href="https://gulfmigration.grc.net/qatar-population-by-nationality-qatari-non-qatari-at-dates-of-censuses-1970-2020/" rel="noopener" target="_blank">gulfmigration.grc.net</a></li>
+<li id="src-31">Norwegian Petroleum (Norwegian government), The petroleum tax system (78% marginal rate). <a href="https://www.norskpetroleum.no/en/economy/petroleum-tax/" rel="noopener" target="_blank">norskpetroleum.no</a></li>
+<li id="src-32">Statistics Norway, population (5.64 million). <a href="https://www.ssb.no/en/befolkning/folketall/statistikk/befolkning" rel="noopener" target="_blank">ssb.no</a></li>
+<li id="src-33">Norges Bank, exchange rates, US dollar (NOK 9.2944 per US$ on 28 October 2026). <a href="https://www.norges-bank.no/en/topics/Statistics/exchange_rates/?tab=currency&amp;id=USD" rel="noopener" target="_blank">norges-bank.no</a></li>
+<li id="src-34">Reserve Bank of Australia, exchange rates F11.1 (US$0.7034 per A$ on 28 October 2026). <a href="https://www.rba.gov.au/statistics/tables/csv/f11.1-data.csv" rel="noopener" target="_blank">rba.gov.au</a></li>
+<li id="src-35">QatarEnergy (state-owned; foreign partners share 25% of the North Field East expansion). <a href="https://en.wikipedia.org/wiki/QatarEnergy" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-36">INPEX, Ichthys LNG (INPEX 67.82%) and INPEX shareholder data (Japan&#x27;s Ministry of Economy, Trade and Industry 23.81%, largest shareholder), 30 Jun 2026; WA Government, WA LNG Profile July 2026 (Chevron, Shell and Woodside output shares). <a href="https://www.inpex.com.au/projects/ichthys-lng/" rel="noopener" target="_blank">inpex.com.au</a> <a href="https://inpex.com/english/ir/shareholder/stock.html" rel="noopener" target="_blank">inpex.com</a> <a href="https://www.wa.gov.au/system/files/2026-08/walngprofilejuly2026.docx" rel="noopener" target="_blank">wa.gov.au</a></li>
+<li id="src-37">ABC News, Bluey at Senate estimates, 28 Oct 2026 (Ludo Studio owns the IP, BBC Studios distributes, the ABC holds a licence). <a href="https://www.abc.net.au/news/2026-10-28/brk-bluey-senate-estimates-one-nation-cartoon/107317644" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-38">National Blood Authority, Annual Report 2024-25 (905 t of donated plasma; national fractionation agreement about A$3.4bn over 2018-2026; 57.5% of immunoglobulin imported; CSL Behring among import suppliers). <a href="https://www.blood.gov.au/sites/default/files/documents/2025-10/NBA0920%20%E2%80%93%20NBA%20Annual%20Report%202024%E2%80%9325%20(Working%20file)%20-%20WCAG.pdf" rel="noopener" target="_blank">blood.gov.au</a></li>
+<li id="src-39">NSW Productivity and Equality Commission, Supporting volunteer plasma donation, Oct 2025 (imports tend to come from countries where donors are paid, especially the US). <a href="https://www.productivity.nsw.gov.au/sites/default/files/2025-10/NSW-Productivity-and-Equality-Commission-market-study-Supporting-volunteer-plasma-donation.pdf" rel="noopener" target="_blank">productivity.nsw.gov.au</a></li>
+<li id="src-40">CSL Annual Report 2026, shareholder information (substantial holders State Street, BlackRock, Vanguard, at 31 Jul 2026). <a href="https://investors.csl.com/annualreport/2026/164/" rel="noopener" target="_blank">investors.csl.com</a></li>
+<li id="src-41">ABC News, Chinese-owned Landbridge launches international legal action over forced sale of Port of Darwin, 1 May 2026. <a href="https://www.abc.net.au/news/2026-05-01/chinese-owned-darwin-port-launches-legal-action/106633362" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-42">Australian Dictionary of Biography, Fred Walker. <a href="https://adb.anu.edu.au/biography/walker-fred-8953" rel="noopener" target="_blank">adb.anu.edu.au</a> <a href="https://en.wikipedia.org/wiki/Vegemite" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-43">CNBC, Bega Cheese to acquire Vegemite from Mondelez, 18 Jan 2017. <a href="https://www.cnbc.com/2017/01/18/bega-cheese-to-acquire-vegemite-from-mondelez-international.html" rel="noopener" target="_blank">cnbc.com</a></li>
+<li id="src-44">Reserve Bank of Australia Bulletin, Privatisation in Australia, December 1997 (Commonwealth Bank sold for about A$8.1bn in three tranches). <a href="https://www.rba.gov.au/publications/bulletin/1997/dec/2.html" rel="noopener" target="_blank">rba.gov.au</a></li>
+<li id="src-45">StockAnalysis, Commonwealth Bank market capitalisation (about A$272.5bn on 27 Oct 2026). <a href="https://stockanalysis.com/quote/asx/CBA/market-cap/" rel="noopener" target="_blank">stockanalysis.com</a></li>
+<li id="src-46">Inside FMCG, CUB joins Asahi family, 2 Jun 2020; BeverageDaily, AB InBev agrees to sell CUB to Asahi, 19 Jul 2019. <a href="https://insidefmcg.com.au/2020/06/02/cub-joins-asahi-family/" rel="noopener" target="_blank">insidefmcg.com.au</a> <a href="https://www.beveragedaily.com/Article/2019/07/19/AB-InBev-agrees-to-sell-Australia-s-Carlton-United-Breweries-to-Asahi-in-11bn-deal" rel="noopener" target="_blank">beveragedaily.com</a></li>
+<li id="src-47">Wikipedia, Foster&#x27;s Group (taken over by SABMiller, December 2011). <a href="https://en.wikipedia.org/wiki/Foster%27s_Group" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-48">Kirin Holdings, completion of Lion Nathan acquisition, 21 Oct 2009. <a href="https://www.kirinholdings.com/en/newsroom/release/2009/1021_01.html" rel="noopener" target="_blank">kirinholdings.com</a></li>
+<li id="src-49">Campbell Soup Company, sale of Arnott&#x27;s to KKR for about US$2.2 billion, Dec 2019. <a href="https://www.thecampbellscompany.com/newsroom/press-releases/campbell-completes-sale-of-arnotts-and-certain-of-campbells-international-operations-to-kkr-for-approximately-2-2-billion/" rel="noopener" target="_blank">thecampbellscompany.com</a></li>
+<li id="src-50">Wikipedia, Murray Goulburn Co-operative (sold to Saputo for A$1.31bn, 2018). <a href="https://en.wikipedia.org/wiki/Murray_Goulburn_Co-operative" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-51">Australian Manufacturing, ACCC okays Saputo-Murray Goulburn deal, 5 Apr 2018. <a href="https://www.australianmanufacturing.com.au/accc-okays-saputo-murray-goulburn-deal/" rel="noopener" target="_blank">australianmanufacturing.com.au</a></li>
+<li id="src-52">State Library of Queensland, Pauls dairy factory collection (Parmalat bought Pauls in 1998); Wikipedia, Parmalat (Lactalis control from July 2011). <a href="https://www.slq.qld.gov.au/blog/digitised-slq-pauls-dairy-factory-photo-collection" rel="noopener" target="_blank">slq.qld.gov.au</a> <a href="https://en.wikipedia.org/wiki/Parmalat" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-53">Fonterra, Fonterra completes sale of Mainland Group to Lactalis, 31 Mar 2026. <a href="https://www.fonterra.com/nz/en/our-stories/media/fonterra-completes-sale-of-mainland-group-to-lactalis.html" rel="noopener" target="_blank">fonterra.com</a></li>
+<li id="src-54">Wikipedia, UGG (brand) (Deckers bought UGG Holdings in 1995 for a reported US$14.6m; trademark in more than 130 countries). <a href="https://en.wikipedia.org/wiki/UGG_(brand)" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-55">Deckers Brands, fiscal 2026 results (UGG brand sales US$2.74bn, year to 31 Mar 2026). <a href="https://ir.deckers.com/sec-filings/all-sec-filings/content/0000910521-26-000007/deckex991pressrelease-3312.htm" rel="noopener" target="_blank">ir.deckers.com</a></li>
+<li id="src-56">ABC News, Australian ugg boot maker loses US Supreme Court bid, 8 Dec 2021; US Supreme Court docket 21-513. <a href="https://www.abc.net.au/news/2021-12-08/australian-ugg-boot-maker-loses-supreme-court-bid/100682456" rel="noopener" target="_blank">abc.net.au</a> <a href="https://www.supremecourt.gov/docket/docketfiles/html/public/21-513.html" rel="noopener" target="_blank">supremecourt.gov</a></li>
+<li id="src-57">Wikipedia, Streets (ice cream). <a href="https://en.wikipedia.org/wiki/Streets_(ice_cream)" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-58">Diageo, acquisition of Bundaberg Rum, 6 Dec 2000. <a href="https://www.investegate.co.uk/announcement/rns/diageo--dge/acquisition-/227336" rel="noopener" target="_blank">investegate.co.uk</a></li>
+<li id="src-59">McCormick Australia, our history. <a href="https://mccormick.com.au/history" rel="noopener" target="_blank">mccormick.com.au</a></li>
+<li id="src-60">Wikipedia, Speedo. <a href="https://en.wikipedia.org/wiki/Speedo" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-61">FoodNavigator, Nestlé buys Uncle Tobys, 24 May 2006. <a href="https://www.foodnavigator.com/Article/2006/05/24/Nestle-expands-nutritious-snack-business/" rel="noopener" target="_blank">foodnavigator.com</a></li>
+<li id="src-62">Food Online, Frito-Lay completes purchase of Smith&#x27;s Snackfood, 1998. <a href="https://www.foodonline.com/doc/frito-lay-completes-purchase-of-smiths-snackf-0001" rel="noopener" target="_blank">foodonline.com</a></li>
+<li id="src-63">SmartCompany, Four&#x27;N Twenty pies sold to Hong Kong&#x27;s PAG, Sep 2022. <a href="https://www.smartcompany.com.au/finance/fourn-twenty-pies-iconic-australian-brands-sold-off-internationally/" rel="noopener" target="_blank">smartcompany.com.au</a></li>
+<li id="src-64">Simplot Australia, Rolling home with Chiko for 70 years. <a href="https://simplot.com.au/our-story/news/rolling-home-with-chiko-for-70-years" rel="noopener" target="_blank">simplot.com.au</a></li>
+<li id="src-65">SmartCompany, Nestlé to stop making Fantales, June 2023. <a href="https://www.smartcompany.com.au/retail/fantales-nestle-cease-production-confectionery/" rel="noopener" target="_blank">smartcompany.com.au</a></li>
+<li id="src-66">InDaily, General Motors to retire Holden brand, 17 Feb 2020. <a href="https://www.indailysa.com.au/news/business/2020/02/17/general-motors-to-retire-holden-brand-and-quit-australia/" rel="noopener" target="_blank">indailysa.com.au</a></li>
+<li id="src-67">South Burnett Online, Bega confirms A$534m purchase of Lion Dairy and Drinks, 25 Jan 2021. <a href="https://southburnett.com.au/news2/2021/01/25/bega-confirms-534m-purchase/" rel="noopener" target="_blank">southburnett.com.au</a></li>
+<li id="src-68">Tattarang, bringing R.M. Williams home, 18 Oct 2020. <a href="https://www.tattarang.com/news/2020/tattarang-brings-iconic-australian-brand-home/" rel="noopener" target="_blank">tattarang.com</a></li>
+<li id="src-69">Inside Retail, Brett Blundy returns with A$700 million acquisition of Bonds and Bras N Things, 2026; SGB, Gildan completes sale of HanesBrands Australia to Blundy&#x27;s Singapore-registered BBFIT Investments, 26 Oct 2026. <a href="https://insideretail.com.au/business/financial/brett-blundy-returns-with-700-million-acquisition-of-bonds-bras-n-things-202607" rel="noopener" target="_blank">insideretail.com.au</a> <a href="https://sgbonline.com/gildan-completes-sale-of-hanesbrands-australia/" rel="noopener" target="_blank">sgbonline.com</a></li>
+<li id="src-70">Treasury, Tax Expenditures and Insights Statement, December 2025 (CGT discount A$21.8bn in 2025-26; 83% of benefit to the top decile in 2022-23; 1.2 million people with rental losses in 2022-23, cutting their tax by about A$3.9bn). <a href="https://treasury.gov.au/sites/default/files/2025-12/p2025-721342.pdf" rel="noopener" target="_blank">treasury.gov.au</a></li>
+<li id="src-71">Treasury Laws Amendment (Tax Reform No. 1) Act 2026 (No. 49); ABC News, How budget tax changes will affect you, 13 May 2026. <a href="https://www.legislation.gov.au/C2026A00049/asmade/versions" rel="noopener" target="_blank">legislation.gov.au</a> <a href="https://www.abc.net.au/news/2026-05-13/how-budget-tax-changes-will-affect-you-cgt-negative-gearing/106674212" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-72">Wikipedia, Geelong Oil Refinery and Lytton Oil Refinery. <a href="https://en.wikipedia.org/wiki/Geelong_Oil_Refinery" rel="noopener" target="_blank">en.wikipedia.org</a> <a href="https://en.wikipedia.org/wiki/Lytton_Oil_Refinery" rel="noopener" target="_blank">en.wikipedia.org</a></li>
+<li id="src-73">Australian National Audit Office, Report No. 43 2007-08, the Telstra 3 sale (remaining shares transferred to the Future Fund). <a href="https://www.anao.gov.au/sites/default/files/ANAO_Report_2007-2008_43.pdf" rel="noopener" target="_blank">anao.gov.au</a></li>
+<li id="src-74">Harvard Growth Lab, Atlas of Economic Complexity, Australia&#x27;s exports, 2024 (five resource commodities about 64% of goods exports). <a href="https://atlas.hks.harvard.edu/countries/36/export-complexity" rel="noopener" target="_blank">atlas.hks.harvard.edu</a></li>
+<li id="src-75">Harvard Growth Lab, Atlas of Economic Complexity rankings, 2024 (Australia 74th of 145). <a href="https://atlas.hks.harvard.edu/rankings" rel="noopener" target="_blank">atlas.hks.harvard.edu</a></li>
+<li id="src-76">Advanced Manufacturing Growth Centre, comment on the 2025 Economic Complexity Index, 16 Feb 2026 (second-least complex OECD economy ranked, ahead only of Chile). <a href="https://www.amgc.org.au/wp-content/uploads/2026/02/AMGC-2025-ECI-Comment-16.2.2026.pdf" rel="noopener" target="_blank">amgc.org.au</a></li>
+<li id="src-77">Australian Bureau of Statistics, Value of dwellings, June quarter 2026 (A$12.7 trillion); ASX market statistics; ABS national accounts, June 2026. <a href="https://www.abs.gov.au/media-centre/media-releases/value-dwellings-falls-03" rel="noopener" target="_blank">abs.gov.au</a> <a href="https://www.asx.com.au/about/market-statistics/historical-market-statistics" rel="noopener" target="_blank">asx.com.au</a></li>
+<li id="src-78">Canberra Times (AAP), Two years in, 124,000 behind: housing target slips away, 2026; National Housing Supply and Affordability Council, quarterly report, August 2026. <a href="https://www.canberratimes.com.au/story/9364253/two-years-in-124000-behind-housing-target-slips-away/" rel="noopener" target="_blank">canberratimes.com.au</a> <a href="https://nhsac.gov.au/reports-and-submissions/quarterly-report-august-2026" rel="noopener" target="_blank">nhsac.gov.au</a></li>
+<li id="src-79">Joe Hockey, Treasurer, doorstop transcript, Sydney, 9 June 2015 (archived); ABC News clip, &#x27;Get a good job&#x27;, Hockey tells first-home buyers. <a href="https://web.archive.org/web/20151223033824/http://jbh.ministers.treasury.gov.au/transcript/143-2015/" rel="noopener" target="_blank">web.archive.org</a> <a href="https://www.youtube.com/watch?v=rPTGcnVHvag" rel="noopener" target="_blank">youtube.com</a></li>
+<li id="src-80">Reserve Bank of Australia, Financial Stability Review, March 2015, Household and Business Finances. <a href="https://www.rba.gov.au/publications/fsr/2015/mar/household-business-finances.html" rel="noopener" target="_blank">rba.gov.au</a></li>
+<li id="src-81">Prime Minister, radio interview, ABC Radio Perth, 28 April 2026 (transcript). <a href="https://www.pm.gov.au/media/radio-interview-abc-perth-7" rel="noopener" target="_blank">pm.gov.au</a></li>
+<li id="src-82">Australian Government, Budget Paper No. 1 2026-27 (LNG prices at &#x27;elevated levels&#x27;; company tax A$19.0bn higher from energy export prices; PRRT forecast up A$400m). <a href="https://budget.gov.au/content/bp1/download/bp1_2026-27.pdf" rel="noopener" target="_blank">budget.gov.au</a></li>
+<li id="src-83">Malcolm Turnbull, Prime Minister, doorstop, Sydney, 19 February 2016 (PM Transcripts 40197). <a href="https://pmtranscripts.pmc.gov.au/release/transcript-40197" rel="noopener" target="_blank">pmtranscripts.pmc.gov.au</a></li>
+<li id="src-84">ABC News, Government&#x27;s negative gearing claims contradicted by official advice, FOI documents show, 8 January 2018. <a href="https://www.abc.net.au/news/2018-01-08/govt-negative-gearing-claims-contradicted-by-official-advice-foi/9309736" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-85">Jim Chalmers, Treasurer, joint press conference, Belconnen, 10 May 2026 (transcript); ABC News, Treasury advice on the 1.2 million homes target, July 2025. <a href="https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/transcripts/joint-press-conference-belconnen-canberra" rel="noopener" target="_blank">ministers.treasury.gov.au</a> <a href="https://www.youtube.com/watch?v=R6Z-yMxosz8" rel="noopener" target="_blank">youtube.com</a></li>
+<li id="src-86">National Housing Supply and Affordability Council, State of the Housing System 2026, 30 April 2026 (about 980,000 homes by mid-2029; 1.2 million around September 2030). <a href="https://nhsac.gov.au/reports-and-submissions/state-housing-system-2026" rel="noopener" target="_blank">nhsac.gov.au</a></li>
+<li id="src-87">ABC News, Raise taxes to fix budget, 1.2m homes won&#x27;t be built, Labor told by Treasury, 14 July 2025. <a href="https://www.abc.net.au/news/2025-07-14/raise-taxes-lower-housing-target-treasury-advises-labor/105504538" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-88">AAP FactCheck, Experts reject claim Labor created housing crisis, 1 May 2025 (quotes the 16 April 2025 ABC leaders&#x27; debate); ABC News, full leaders&#x27; debate video. <a href="https://www.aap.com.au/factcheck/experts-reject-claim-labor-created-housing-crisis/" rel="noopener" target="_blank">aap.com.au</a> <a href="https://www.youtube.com/watch?v=_VfkVB2eX7U&amp;t=431s" rel="noopener" target="_blank">youtube.com</a></li>
+<li id="src-89">Australian Bureau of Statistics, Overseas Migration 2020-21 (net loss of 88,800, the first since 1946). <a href="https://www.abs.gov.au/statistics/people/population/overseas-migration/2020-21" rel="noopener" target="_blank">abs.gov.au</a></li>
+<li id="src-90">Australian Bureau of Statistics, Residential Property Price Indexes, December 2021 (capital-city prices up 23.7% over 2021, the largest annual rise since the series began in 2003). <a href="https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/residential-property-price-indexes-eight-capital-cities/dec-2021" rel="noopener" target="_blank">abs.gov.au</a></li>
+<li id="src-91">Reserve Bank of Australia, cash rate target history (0.10% from November 2020 to May 2022). <a href="https://www.rba.gov.au/statistics/cash-rate/" rel="noopener" target="_blank">rba.gov.au</a></li>
+<li id="src-92">AAP FactCheck, Migration blame game ignores bipartisan worker push, 2025 (Dutton, 2 September 2022: &#x27;we do need an increase in the migration numbers&#x27;). <a href="https://www.aap.com.au/factcheck/migration-blame-game-ignores-bipartisan-worker-push/" rel="noopener" target="_blank">aap.com.au</a></li>
+<li id="src-93">Angus Taylor, Leader of the Opposition, Budget in reply, House of Representatives, 14 May 2026 (Liberal Party transcript; Hansard via OpenAustralia). <a href="https://www.liberal.org.au/2026/05/14/budget-address-in-reply" rel="noopener" target="_blank">liberal.org.au</a> <a href="https://www.openaustralia.org.au/debates/?id=2026-05-14.128.3" rel="noopener" target="_blank">openaustralia.org.au</a></li>
+<li id="src-94">Australian Bureau of Statistics, net overseas migration releases (538,000 in 2022-23; 306,000 in 2024-25, still above pre-pandemic levels; 292,100 in the year to March 2026). <a href="https://www.abs.gov.au/media-centre/media-releases/annual-net-overseas-migration-falls-second-year-row" rel="noopener" target="_blank">abs.gov.au</a> <a href="https://www.abs.gov.au/media-centre/media-releases/australias-population-grows-14-march-2026" rel="noopener" target="_blank">abs.gov.au</a></li>
+<li id="src-95">The Adviser, Coalition vows to scrap housing tax reforms and limit migration to supply, 15 May 2026 (Angus Taylor&#x27;s Budget reply: repeal Labor&#x27;s negative gearing and capital gains changes; cap migration at homes built). <a href="https://www.theadviser.com.au/borrower/48439-coalition-vows-to-scrap-housing-tax-reforms-and-limit-migration-to-supply" rel="noopener" target="_blank">theadviser.com.au</a></li>
+<li id="src-96">Madeleine King, Minister for Resources, interview, ABC Radio Brisbane, 8 May 2026 (transcript). <a href="https://www.minister.industry.gov.au/king/media/interview-steve-austin-abc-brisbane" rel="noopener" target="_blank">minister.industry.gov.au</a></li>
+<li id="src-97">SBS News (AAP), Major coal seam gas projects approved, 22 October 2010. <a href="https://www.sbs.com.au/news/article/major-coal-seam-gas-projects-approved/jtthhg42x" rel="noopener" target="_blank">sbs.com.au</a></li>
+<li id="src-98">Parliamentary Library, Bills Digest on the domestic gas reservation bill, 2026 (ACCC: LNG demand diverted gas from traditional domestic supply). <a href="https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/bd/bd2627/27bd025" rel="noopener" target="_blank">aph.gov.au</a></li>
+<li id="src-99">Josh Frydenberg, Treasurer, Government responds to Callaghan PRRT review, 2 November 2018 (archived media release). <a href="https://web.archive.org/web/20200227043253/https://ministers.treasury.gov.au/ministers/josh-frydenberg-2018/media-releases/government-responds-callaghan-prrt-review" rel="noopener" target="_blank">web.archive.org</a></li>
+<li id="src-100">Jim Chalmers, Treasurer, Implementing reforms to the Petroleum Resource Rent Tax, 6 August 2024 (media release). <a href="https://ministers.treasury.gov.au/ministers/jim-chalmers-2022/media-releases/implementing-reforms-petroleum-resource-rent-tax" rel="noopener" target="_blank">ministers.treasury.gov.au</a></li>
+<li id="src-101">ABC News, Victorian government finalises VicRoads overhaul, 1 July 2022. <a href="https://www.abc.net.au/news/2022-07-01/victorian-government-finalises-vicroads-overhaul/101200146" rel="noopener" target="_blank">abc.net.au</a></li>
+<li id="src-102">Victorian Government, Better deal for drivers, and billions for Victorian Future Fund, 1 July 2022 (media release: $7.9 billion upfront, 40-year joint venture). <a href="https://www.premier.vic.gov.au/sites/default/files/2022-07/220701%20-%20Better%20Deal%20For%20Drivers%2C%20And%20Billions%20For%20Victorian%20Future%20Fund.pdf" rel="noopener" target="_blank">premier.vic.gov.au</a></li>
+<li id="src-103">Canberra Times (AAP), VicRoads partially privatised for $7.9b, 1 July 2022. <a href="https://www.canberratimes.com.au/story/7802999/vicroads-partially-privatised-for-79b/" rel="noopener" target="_blank">canberratimes.com.au</a></li>
+<li id="src-104">Engineers Australia, submission to the Productivity Commission, 2025 (over 60% of qualified engineers born overseas). <a href="https://assets.pc.gov.au/2025-09/sub074-competition-analysis-2025-attachment2.pdf?VersionId=ZcHcSCu70nJ1t0V.f8PJUliz6ToqV76P" rel="noopener" target="_blank">assets.pc.gov.au</a></li>
+<li id="src-105">Revenue NSW, Calculate transfer duty (duty is paid when you buy property in NSW; 2026-27 rates). <a href="https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty/understanding-transfer-duty/calculate-transfer-duty" rel="noopener" target="_blank">revenue.nsw.gov.au</a></li>
+<li id="src-106">Productivity Commission, Wealth transfers and their economic effects, 7 Dec 2021 (people inherit at about 50 on average). <a href="https://www.pc.gov.au/inquiries-and-research/wealth-transfers" rel="noopener" target="_blank">pc.gov.au</a></li>
+<li id="src-107">Australian Institute of Health and Welfare, Home ownership and housing tenure, Australia&#x27;s welfare, 16 Oct 2025 (ownership at ages 30-34: 64% in 1971, 50% in 2021). <a href="https://www.aihw.gov.au/reports/australias-welfare/home-ownership-and-housing-tenure" rel="noopener" target="_blank">aihw.gov.au</a></li>
+<li id="src-108">Parliamentary Budget Office, election commitment costing for the Australian Greens: a legal cannabis scheme for Australia, 2025 (A$8.7bn to 2035-36). <a href="https://www.pbo.gov.au/sites/default/files/2025-05/PBO-ECR-2025-3059-Justice%20-%20a%20legal%20cannabis%20scheme%20for%20Australia.pdf" rel="noopener" target="_blank">pbo.gov.au</a></li>
+<li id="src-109">SBS News, Is Japan getting Australian gas for free?, 2026 (the Australia Institute&#x27;s proposed 25% export levy, about A$17bn a year). <a href="https://www.sbs.com.au/news/article/is-japan-getting-australian-gas-for-free/rbvl35n6x" rel="noopener" target="_blank">sbs.com.au</a></li>
+<li id="src-110">Alaska Department of Revenue, Permanent Fund Dividend Division: Summary of Dividend Applications and Payments (a dividend every year since 1982) and the 2026 PFD amount notice, 21 Sep 2026 (US$1,200, including a US$200 energy relief payment). <a href="https://pfd.alaska.gov/" rel="noopener" target="_blank">pfd.alaska.gov</a> <a href="https://pfd.alaska.gov/Division-Info/summary-of-dividend-applications-payments" rel="noopener" target="_blank">pfd.alaska.gov</a> <a href="https://pfd.alaska.gov/Division-Info/historical-timeline" rel="noopener" target="_blank">pfd.alaska.gov</a></li>
+<li id="src-111">US Geological Survey, Mineral Commodity Summaries 2026: Lithium (Australia 92,000 t of 290,000 t world production outside the US, 2025). <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf" rel="noopener" target="_blank">pubs.usgs.gov</a></li>
+<li id="src-112">ACT Government, Review of the operation of the Drugs of Dependence (Personal Cannabis Use) Amendment Act 2019, August 2024 (from 31 Jan 2020, no criminal penalty for adults growing one or two plants, up to four per premises); ACT Legislation Register, A2019-34. <a href="https://www.act.gov.au/__data/assets/pdf_file/0004/2570890/Review-of-the-operation-of-the-Drugs-of-Dependence-Personal-Cannabis-Use-Amendment-Act-2019.pdf" rel="noopener" target="_blank">act.gov.au</a> <a href="https://www.legislation.act.gov.au/a/2019-34/" rel="noopener" target="_blank">legislation.act.gov.au</a></li>
+<li id="src-113">Australian Electoral Commission, Time running out to register political parties, 2024 (at least 1,500 members, or an existing member of Parliament, and a written constitution). <a href="https://www.aec.gov.au/media/2024/08-06.htm" rel="noopener" target="_blank">aec.gov.au</a></li>
+<li id="src-114">Australian Electoral Commission, FAQs: Party registration (members must be enrolled; the AEC checks the list against the roll and contacts a random sample). <a href="https://www.aec.gov.au/FAQs/party-registration.htm" rel="noopener" target="_blank">aec.gov.au</a></li>
+</ol>
+    <div class="legal">
+      <p><b>Authorised by Naveen Puliyath for Tax Gas Profits, Build Homes, Girraween NSW.</b></p>
+      <p>Tax Gas Profits, Build Homes is a new political party. It is not yet registered with the Australian Electoral Commission or any state electoral commission, and is not affiliated with any other party, company or broadcaster. Company and brand names appear only to report who owns what.</p>
+      <p>Quotes are short extracts from public statements, each linked to the original so you can judge the context for yourself. Figures are rounded. Where a figure is a think tank's estimate or a witness's evidence, the page says so. If we get a number wrong, we'll fix it here and say so.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const SECONDS_PER_YEAR = 365.25 * 24 * 3600;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // The stickers rest in place; they only slap on when someone is actually watching the page load.
+  if (!reduceMotion && document.visibilityState === "visible") document.documentElement.classList.add("motion");
+
+  // Live auction: the board calls one lot after another until someone pauses it.
+  const lots = [...document.querySelectorAll(".lotcard")];
+  const lotno = document.getElementById("lotno");
+  const lotSticker = document.getElementById("lot-sticker");
+  const pauseBtn = document.getElementById("lots-pause");
+  let current = 0;
+  let timer = null;
+  let userPaused = reduceMotion;
+  function show(i) {
+    lots[current].classList.remove("on");
+    current = (i + lots.length) % lots.length;
+    const lot = lots[current];
+    lot.classList.add("on");
+    lotno.textContent = "Lot " + (current + 1) + " of " + lots.length;
+    lotSticker.textContent = lot.dataset.sticker;
+    if (!reduceMotion) {
+      lotSticker.classList.remove("slap");
+      void lotSticker.offsetWidth;
+      lotSticker.classList.add("slap");
+    }
+  }
+  function stop() { clearInterval(timer); timer = null; }
+  function play() { stop(); timer = setInterval(() => show(current + 1), 4200); }
+  function setPaused(p) {
+    userPaused = p;
+    pauseBtn.setAttribute("aria-pressed", String(p));
+    pauseBtn.textContent = p ? "Play" : "Pause";
+    document.documentElement.classList.toggle("paused", p);
+    if (p) stop(); else play();
+  }
+  if (lots.length && pauseBtn) {
+    const board = document.getElementById("lots");
+    pauseBtn.addEventListener("click", () => setPaused(!userPaused));
+    document.getElementById("lots-next").addEventListener("click", () => { show(current + 1); if (!userPaused) play(); });
+    document.getElementById("lots-prev").addEventListener("click", () => { show(current - 1); if (!userPaused) play(); });
+    board.addEventListener("mouseenter", stop);
+    board.addEventListener("mouseleave", () => { if (!userPaused) play(); });
+    board.addEventListener("focusin", stop);
+    board.addEventListener("focusout", () => { if (!userPaused) play(); });
+    document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (!userPaused) play(); });
+    setPaused(userPaused);
+  }
+
+  // Live ticker: each counter carries its yearly total ($) in data-per-year.
+  const counters = [...document.querySelectorAll("[data-per-year]")];
+  const fmt = new Intl.NumberFormat("en-AU", { maximumFractionDigits: 0 });
+  const started = performance.now();
+  let last = 0;
+  function tick(now) {
+    // With reduced motion the numbers still count, but only once a second.
+    if (!reduceMotion || now - last >= 1000) {
+      last = now;
+      const secs = (now - started) / 1000;
+      for (const el of counters) {
+        const perSec = Number(el.dataset.perYear) / SECONDS_PER_YEAR;
+        el.textContent = "$" + fmt.format(perSec * secs);
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  if (counters.length) requestAnimationFrame(tick);
+
+  // Household split: per-person savings times the number of people.
+  const seg = document.querySelectorAll('input[name="people"]');
+  const outs = document.querySelectorAll("[data-per-person]");
+  const peopleOut = document.getElementById("people-out");
+  const money = v => v >= 1e6 ? "$" + (v / 1e6).toFixed(v >= 1e7 ? 0 : 1) + "m" : "$" + fmt.format(Math.round(v / 100) * 100);
+  function split() {
+    const checked = document.querySelector('input[name="people"]:checked');
+    const n = checked ? Number(checked.value) : 4;
+    for (const el of outs) el.textContent = money(Number(el.dataset.perPerson) * n);
+    if (peopleOut) peopleOut.textContent = n === 1 ? "just you" : n + " people";
+  }
+  seg.forEach(i => i.addEventListener("change", split));
+  split();
+
+  // Quiz: one verdict per answer; the right answer is marked data-right.
+  const answers = [...document.querySelectorAll(".answer")];
+  const verdict = document.getElementById("verdict");
+  answers.forEach(btn => btn.addEventListener("click", () => {
+    answers.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    const right = btn.hasAttribute("data-right");
+    verdict.hidden = false;
+    verdict.classList.toggle("right", right);
+    const head = document.createElement("b");
+    head.textContent = right ? "Correct." : "Not quite.";
+    verdict.replaceChildren(head, document.createTextNode(btn.dataset.verdict));
+  }));
+
+  // Paperwork unfolds only when someone opens it, so a page that loads with it open shows it whole.
+  document.querySelectorAll("details.papers").forEach(d => d.addEventListener("toggle", () => {
+    if (!d.open || reduceMotion) return;
+    d.classList.add("opening");
+    setTimeout(() => d.classList.remove("opening"), 400);
+  }));
+
+
+  // Copy buttons: each names the textarea it copies; the status line sits next to it.
+  document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", () => {
+    const text = document.getElementById(btn.dataset.copy);
+    const status = btn.parentElement.querySelector(".copied");
+    const done = () => { status.textContent = "Copied. Paste it anywhere."; };
+    const fallback = () => { text.focus(); text.select(); status.textContent = "Selected. Press copy on your keyboard."; };
+    try {
+      navigator.clipboard.writeText(text.value).then(done, fallback);
+    } catch (e) { fallback(); }
+  }));
+
+  // The gas lot's paperwork starts open beside it on wide screens; on a phone it would push everything down.
+  const featurePapers = document.querySelector(".lot.feature details.papers");
+  if (featurePapers && window.matchMedia("(max-width: 759px)").matches) featurePapers.open = false;
+})();
+</script>
+</body>
+</html>
